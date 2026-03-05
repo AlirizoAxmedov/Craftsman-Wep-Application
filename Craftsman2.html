@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzbek Kandakorlik: The Art of Copper Engraving</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F9F9FA; /* Soft Alabaster */
+            --surface: #FFFFFF;
+            --text: #1A1B1E; /* Deep Charcoal */
+            --muted: #6B6B6B;
+            --accent: #B87333; /* Elegant Copper */
+            --divider: rgba(184,115,51,0.12);
+            --radius: 10px;
+            --grid-row: 8px; /* base for masonry calculation */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+            line-height: 1.65;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* Subtle islimi watermark */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('Patterns/2927c9cf-4590-4957-a2a1-8161a5f08b86.png');
+            background-repeat: repeat;
+            background-size: 600px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: transparent;
+            color: var(--text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+            border-bottom: 1px solid var(--divider);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.4rem 0.75rem;
+            transition: color 0.18s ease, transform 0.18s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        nav button:hover { color: var(--text); transform: translateY(-2px); }
+        nav button.active { color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
+
+        /* Auth buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .auth-buttons button {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-weight: 600;
+        }
+
+        .auth-buttons button:hover { background: #a25c1f; }
+
+        /* Language switcher */
+        .language-switcher {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 2px solid var(--divider);
+            color: var(--text);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .lang-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* User profile section */
+        .user-profile {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .user-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .user-info .username { font-weight: 600; color: var(--text); }
+        .user-info .role { font-size: 0.8rem; color: var(--muted); }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .modal-close:hover { color: var(--text); }
+
+        .modal h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid var(--divider);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(184,115,51,0.1);
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid var(--divider);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(184,115,51,0.1);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover { background: #a25c1f; }
+
+        .form-error {
+            color: #d32f2f;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .form-success {
+            color: #388e3c;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .modal-toggle {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .modal-toggle a {
+            color: var(--accent);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .modal-toggle a:hover { text-decoration: underline; }
+
+        /* Quiz section styles */
+        .quizzes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .quiz-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+        }
+
+        .quiz-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .quiz-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .quiz-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+        .quiz-button {
+            width: 100%;
+            padding: 0.7rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .quiz-button:hover { background: #a25c1f; }
+
+        /* Quiz modal for taking quiz */
+        .quiz-modal-content {
+            max-width: 600px;
+            max-height: 80vh;
+        }
+
+        .question-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .question-item h4 {
+            margin: 0 0 1rem 0;
+            color: var(--text);
+        }
+
+        .answer-option {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.7rem;
+            align-items: center;
+        }
+
+        .answer-option input[type="radio"],
+        .answer-option input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .answer-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .quiz-progress {
+            background: #e0e0e0;
+            border-radius: 4px;
+            height: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: var(--accent);
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .user-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .score-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .score-card h4 { margin: 0 0 1rem 0; color: var(--text); }
+
+        .score-display {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .score-details {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .score-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #e8f5e9;
+            color: #388e3c;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.7rem;
+        }
+
+        .score-badge.failed {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+
+        /* Admin Panel Styles */
+        .admin-tab {
+            padding: 0.7rem 1rem;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .admin-tab:hover { color: var(--text); }
+        
+        .admin-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .admin-tab-content {
+            padding: 1.5rem 0;
+        }
+
+        .admin-tab-content h3 {
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .admin-users-item {
+            background: #f9f9f9;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .admin-users-item .username { font-weight: 600; color: var(--text); }
+        .admin-users-item .role { font-size: 0.85rem; color: var(--muted); }
+        .admin-users-item .email { font-size: 0.9rem; color: var(--muted); }
+
+        /* --- LAYOUT UTILS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section { display: none; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            font-size: 2.25rem;
+            color: var(--text);
+            border-bottom: 2px solid rgba(0,0,0,0.04);
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Samarkand_Registan_2012.jpg/1200px-Samarkand_Registan_2012.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 6.5rem 2rem;
+            text-align: center;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(17,17,17,0.06);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 6px 30px rgba(0,0,0,0.18);
+            letter-spacing: 0.6px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* --- MATERIALS & PROCESS --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
+        }
+
+        /* --- PATTERNS SECTION --- */
+        .pattern-list {
+            list-style: none;
+        }
+        .pattern-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .pattern-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .pattern-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .pattern-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .pattern-content p, .pattern-content ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        .pattern-content ul {
+            margin-left: 1.5rem;
+        }
+        .pattern-image {
+            flex: 1;
+            min-width: 250px;
+        }
+        .pattern-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .section-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary);
+        }
+        .table-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-wrapper th, .table-wrapper td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .table-wrapper th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        .table-wrapper tr:hover {
+            background-color: #f5f5f5;
+        }
+        .pattern-content ul li {
+            margin-bottom: 0.8rem;
+        }
+        .pattern-content ul li::before {
+            content: "✦";
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        /* --- GALLERY SECTION (Original size, full image display) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-auto-rows: auto;
+            gap: 1.2rem;
+        }
+        @media (max-width: 1200px) { .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); } }
+        @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
+
+        .gallery-item {
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(17,17,17,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+        }
+        .gallery-item.in-view { opacity: 1; transform: translateY(0); }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            background-color: #f6f6f6;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 28px 70px rgba(17,17,17,0.09); }
+        .gallery-item:hover img { transform: scale(1.02); }
+        .caption { display: none; }
+
+        /* Image affordance and placeholder */
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            background: rgba(0,0,0,0.25);
+        }
+        .gallery-item:hover .overlay { opacity: 1; pointer-events: auto; }
+        .gallery-item .overlay .btn {
+            background: rgba(255,255,255,0.95);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 20px rgba(17,17,17,0.15);
+            cursor: pointer;
+            border: none;
+            transition: transform 0.18s ease;
+        }
+        .gallery-item .overlay .btn:hover { transform: scale(1.05); }
+
+        .gallery-item { position: relative; }
+        .gallery-item img { min-height: 0; background-color:#fafafa; display:block; }
+
+        .gallery-item.broken { display:flex; align-items:center; justify-content:center; padding:2rem; background: linear-gradient(135deg,#f7f5f2 0%, #fff 100%); color: var(--muted); font-size: 1rem; text-align: center; }
+
+        /* --- LIGHTBOX / MODAL --- */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 2rem;
+        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-content { max-width: 1100px; width: 100%; max-height: 90vh; display:flex; align-items:center; gap:1rem; }
+        .lightbox-img { max-width: 100%; max-height: 85vh; object-fit:contain; border-radius:8px; box-shadow:0 24px 60px rgba(0,0,0,0.6); }
+        .lightbox-caption { color: #fff; font-size:1rem; text-align:center; margin-top:0.5rem; }
+        .lightbox-close { position: absolute; top: 18px; right: 22px; background:transparent; border:none; color:#fff; font-size:28px; cursor:pointer; }
+        .lightbox-nav { position: absolute; top:50%; transform:translateY(-50%); background:transparent; border:none; color:#fff; font-size:48px; cursor:pointer; padding:0 12px; }
+        .lightbox-nav.prev { left: 10px; }
+        .lightbox-nav.next { right: 10px; }
+
+        /* --- SCHOOLS GRID (Previous Styles) --- */
+        .schools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .school-card-link { text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .school-card-link:hover .school-card { box-shadow: 0 8px 25px rgba(0,0,0,0.2); transform: translateY(-5px); }
+        .school-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--secondary); display: flex; flex-direction: column; transition: all 0.3s ease; cursor: pointer; }
+        .school-header { background-color: transparent; padding: 0; text-align: center; }
+        .school-header img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .school-body { padding: 1.5rem; flex-grow: 1; }
+        .school-body h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .school-body li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; list-style: none;}
+        .school-body li::before { content: "✦"; color: var(--accent); position: absolute; left: 0; }
+
+        /* --- FOOTER --- */
+        footer { background: transparent; color: var(--muted); text-align: center; padding: 3rem 1rem; margin-top: 4rem; border-top: 1px solid var(--divider); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">⚒ Kandakorlik</div>
+            <ul>
+                <li><button class="nav-btn active" onclick="showSection('home', this)">Home</button></li>
+                <li><button class="nav-btn" onclick="showSection('patterns', this)">Patterns</button></li>
+                <li><button class="nav-btn" onclick="showSection('schools', this)">Schools</button></li>
+                <li><button class="nav-btn" onclick="showSection('gallery', this)">Gallery</button></li>
+                <li><button class="nav-btn" onclick="showSection('quizzes', this)">Quizzes</button></li>
+                <li><button class="nav-btn" id="scores-link" style="display: none;" onclick="showSection('scores', this)">My Scores</button></li>
+            </ul>
+            
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto;">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                    <button class="lang-btn" data-lang="ru" onclick="switchLanguage('ru')">РУ</button>
+                    <button class="lang-btn" data-lang="uz" onclick="switchLanguage('uz')">УЗ</button>
+                </div>
+                
+                <!-- Auth Buttons (shown when not authenticated) -->
+                <div class="auth-buttons" id="auth-buttons-group">
+                    <button class="nav-btn" onclick="openLoginModal()">Sign In</button>
+                    <button class="nav-btn" style="background: var(--accent); color: white;" onclick="openRegisterModal()">Register</button>
+                </div>
+                
+                <!-- User Profile (shown when authenticated) -->
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <div class="user-info">
+                        <div class="user-name" id="user-display-name">User</div>
+                        <div style="font-size: 0.85rem; color: var(--text-light);" id="user-display-role">Student</div>
+                    </div>
+                    <button class="nav-btn" id="admin-btn" style="display: none; background: #f39c12; color: white;" onclick="openAdminPanel()">Admin</button>
+                    <button class="nav-btn" onclick="logoutUser()" style="background: #e74c3c; color: white;">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLoginModal()">×</button>
+            <h2>Sign In</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div id="login-error" class="form-error" style="display: none;"></div>
+                <button type="submit" class="form-submit">Sign In</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">
+                Don't have an account? <a href="#" onclick="closeLoginModal(); openRegisterModal(); return false;" style="color: var(--accent);">Register here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- REGISTER MODAL -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeRegisterModal()">×</button>
+            <h2>Create Account</h2>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="register-fullname">Full Name</label>
+                    <input type="text" id="register-fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                <div id="register-error" class="form-error" style="display: none;"></div>
+                <button type="submit" class="form-submit">Create Account</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">
+                Already have an account? <a href="#" onclick="closeRegisterModal(); openLoginModal(); return false;" style="color: var(--accent);">Sign in here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- QUIZ MODAL -->
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close" onclick="closeQuizModal()">×</button>
+            <div id="quiz-modal-content">
+                <!-- Quiz content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL MODAL -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeAdminPanel()">×</button>
+            <h2>Admin Panel</h2>
+            
+            <!-- Tabs for admin features -->
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--divider);">
+                <button class="admin-tab active" data-tab="create-user" onclick="switchAdminTab(event, 'create-user')">Create User</button>
+                <button class="admin-tab" data-tab="manage-users" onclick="switchAdminTab(event, 'manage-users')">Manage Users</button>
+            </div>
+            
+            <!-- Create User Tab -->
+            <div id="create-user-tab" class="admin-tab-content">
+                <h3>Create New User Account</h3>
+                <form onsubmit="handleCreateUser(event)">
+                    <div class="form-group">
+                        <label for="admin-fullname">Full Name</label>
+                        <input type="text" id="admin-fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-role">User Role</label>
+                        <select id="admin-role">
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher / Instructor</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div id="admin-create-error" class="form-error" style="display: none;"></div>
+                    <div id="admin-create-success" class="form-success" style="display: none;"></div>
+                    <button type="submit" class="form-submit">Create User Account</button>
+                </form>
+            </div>
+            
+            <!-- Manage Users Tab -->
+            <div id="manage-users-tab" class="admin-tab-content" style="display: none;">
+                <h3>User List</h3>
+                <div id="admin-users-list" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Users will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1>O‘zbek Kandakorlik San'ati</h1>
+            <p>The Master Craft of Uzbek Copper Engraving</p>
+        </div>
+        <div class="container">
+            <h2>Welcome to Misgarlik — The Art of Uzbek Coppersmithing</h2>
+            <p>
+                Uzbekistan is world-renowned for its applied arts, including embroidery, ganch carving, and wood carving. Among these, <strong>Misgarlik</strong> (Coppersmithing) is one of the most ancient and widely spread traditions. From the bustling markets of Bukhara to the workshops of Kokand, masters have transformed simple copper into exquisite jugs (oftoba), trays (lagan), and tea urns (samovar).
+            </p>
+            
+            <h3>What is Misgarlik?</h3>
+            <p>
+                Misgarlik is the traditional craft of creating tools, household items, and decorative objects from copper. This ancient handicraft has been passed down through generations and remains a vital part of Central Asian cultural heritage. Master artisans use both casting and hammer-forging techniques to create functional vessels and artistic pieces that combine beauty with practicality.
+            </p>
+            
+            <h3>Historical Significance</h3>
+            <p>
+                Copper has been known to humanity since ancient times, originally mined from Cyprus (hence its Latin name "cuprum"). Historical sources document that Uzbek coppersmithing flourished as early as the 10th century. The Arab geographer and traveler Al-Muqaddasi recorded that by the 10th century, large copper cauldrons, beautifully decorated vessels, and ornate oil lamps were being exported from Samarkand and Bukhara throughout the Arab world.
+            </p>
+            <p>
+                By the 11th and 12th centuries, Termez became famous throughout the world for its copperwork. The 12th and 13th centuries saw unprecedented attention to copper craftsmanship throughout Central Asia. During the 18th and 19th centuries, the cities of Bukhara, Samarkand, Kokand, and Khiva became renowned centers for producing high-quality bronze and copper vessels.
+            </p>
+            
+            <h3>The Material: Why Copper?</h3>
+            <p>
+                Copper is a soft, ductile, and malleable metal with a reddish color. It conducts heat and electricity exceptionally well (second only to silver) and makes an ideal material for functional vessels. Historically, Uzbek craftsmen worked with pure copper using cold-forging techniques, creating soft yet durable items. Later, they developed bronze—an alloy of copper and tin—which produced even more durable and refined pieces.
+            </p>
+            
+            <h3>Regional Schools and Techniques</h3>
+            <p>
+                Over centuries, distinctive coppersmithing schools developed in major cities: Kokand, Tashkent, Samarkand, Khiva, and others. Each school refined its own unique techniques and aesthetic traditions. Craftsmen use two primary methods: <strong>casting</strong> (melting and pouring copper) and <strong>hammer-forging</strong> (shaping cold copper with repeated hammering). Vessels are typically created in sections, then joined together. After initial construction, specialized engravers (kandakors) add intricate decorative patterns.
+            </p>
+            
+            <br>
+            <p><em>This website preserves the history, techniques, and distinct regional styles of Uzbekistan's copper engraving heritage.</em></p>
+        </div>
+    </section>
+
+    <section id="patterns" class="section">
+        <div class="container">
+            <h2>Naqsh Turlari: The Language of Uzbek Copper Engraving</h2>
+            
+            <div class="section-intro">
+                <p><strong>The Artistic Heritage of Uzbekistan</strong> is fundamentally defined by the intricate system of ornamentation known as <strong>naqsh</strong>. This sophisticated visual language encodes historical narratives, spiritual aspirations, and mathematical precision. For the scholar of Central Asian applied arts, naqsh is not merely decorative; it is a discipline serving as both a marker of socio-economic status and a vessel for cultural continuity over millennia.</p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Historical Evolution of Metalworking and Ornamental Styles</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Historical Period</th>
+                            <th>Key Developments</th>
+                            <th>Ornamental Characteristics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4th Millennium BC</td>
+                            <td>Early Copper Age</td>
+                            <td>Simple knives and rudimentary jewelry</td>
+                        </tr>
+                        <tr>
+                            <td>15th Century BC</td>
+                            <td>Bronze Age (Sopolitepa/Jarqoton)</td>
+                            <td>Cast bronze items and ritual vessels</td>
+                        </tr>
+                        <tr>
+                            <td>5th - 4th Century BC</td>
+                            <td>Saka Period</td>
+                            <td>Ritual cauldrons; early zoomorphic stylization</td>
+                        </tr>
+                        <tr>
+                            <td>5th - 8th Century AD</td>
+                            <td>Soghdian Golden Age</td>
+                            <td>High-level toreutics in gold and silver; rich figuration</td>
+                        </tr>
+                        <tr>
+                            <td>9th - 13th Century AD</td>
+                            <td>Early Islamic Period</td>
+                            <td>Transition to abstract vegetative (islimi) motifs</td>
+                        </tr>
+                        <tr>
+                            <td>14th - 15th Century AD</td>
+                            <td>Temurid Period</td>
+                            <td>Grand scale; integration of calligraphy and complex geometry</td>
+                        </tr>
+                        <tr>
+                            <td>17th - 19th Century AD</td>
+                            <td>Khanate Schools</td>
+                            <td>Crystallization of Bukhara, Khiva, and Kokand styles</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-top: 2rem;">The Taxonomy of Naqsh: Primary Patterns and Motifs</h3>
+            <p style="margin-bottom: 1.5rem;">The decorative surface of an Uzbek copper vessel is a hierarchical arrangement of motifs designed to guide the eye across the object's form. The primary categories include vegetative (islimi), geometric (girih), zoomorphic, and architectural patterns.</p>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>The Philosophy and Application of Islimi</h3>
+                    <p><strong>Islimi</strong> represents the most significant category of Uzbek ornamentation. Consisting of biomorphic, floral designs built upon the concept of the "eternal spiral," islimi sprouts leaves, buds, and flowers along an unbroken, flowing line. This motif represents the underlying order and unity of nature, reflecting a spiritual progression from singular source toward infinity.</p>
+                    <p style="margin-top: 1rem;"><strong>Islimi Subdivisions:</strong></p>
+                    <ul>
+                        <li><strong>Nim Islimi:</strong> Simplified, one-sided vegetative pattern used as borders</li>
+                        <li><strong>Pechak Islimi:</strong> Complex "winding" vine growing between parallel lines</li>
+                        <li><strong>Islimi-band:</strong> Complex interlacing of multiple islimi vines</li>
+                        <li><strong>Madohil Islimi:</strong> Interlocking elements for central medallions</li>
+                    </ul>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/61457ef2-85e1-44f4-a6be-c36275195735.jpg" alt="Islimi Pattern Example">
+                </div>
+            </div>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>Geometric Girih as Structural Framework</h3>
+                    <p>While islimi provides the "flesh" of ornamentation, <strong>girih</strong> (geometric pattern) serves as the "skeleton". Girih consists of intricate networks of stars, polygons, and interlocking lines representing mathematical perfection. In kandakorlik, girih is frequently used to organize space into discrete segments, within which organic islimi motifs are placed, representing the balance between absolute laws of the universe and fluid vitality of life.</p>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/2927c9cf-4590-4957-a2a1-8161a5f08b86.png" alt="Girih Geometric Pattern">
+                </div>
+            </div>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>The Bestiary of Metal: Zoomorphic Stylization</h3>
+                    <p>Despite the general Islamic preference for abstraction, Uzbek metalworkers maintain a rich vocabulary of stylized zoomorphic motifs, many carrying deep protective or symbolic meanings.</p>
+                    <p style="margin-top: 1rem;"><strong>Key Zoomorphic Motifs:</strong></p>
+                    <ul>
+                        <li><strong>Chashmi Bulbul:</strong> "Nightingale's Eye" - series of small, punched dots associated with wisdom and beauty</li>
+                        <li><strong>Ko'chkorak:</strong> "Ram's Horn" - ancient symbol of protection and power against evil</li>
+                        <li><strong>Pushti Baliq:</strong> "Fish Scales" - overlapping pattern symbolizing fertility and life-giving water</li>
+                        <li><strong>Ilon Izi:</strong> "Snake's Trail" - wavy border believed to protect contents from contamination</li>
+                        <li><strong>Kirmak:</strong> "Caterpillar/Leech" - winding pattern suggesting continuity and transformation</li>
+                    </ul>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/51bede7a-101c-40b5-8421-62d06e4136d3.jpg" alt="Zoomorphic Pattern">
+                </div>
+            </div>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>Compositional Archetypes in Copper Engraving</h3>
+                    <p>The organization of naqsh on a metal surface follows specific traditional compositions that determine the visual flow and hierarchy of decoration:</p>
+                    <ul>
+                        <li><strong>Gardish (Circular):</strong> Concentric rings radiating from central medallion (turunj)</li>
+                        <li><strong>Sitora (Star):</strong> Entire surface dominated by central star-like geometry with radiating rays</li>
+                        <li><strong>Mehrob (Arch):</strong> Series of interlocking arches mimicking mosque prayer niches</li>
+                        <li><strong>Mishkalak:</strong> Rectangular or square frames, similar to lattice structure</li>
+                        <li><strong>Gurunj:</strong> Oval or egg-shaped medallions filled with dense, "curly" islimi work</li>
+                    </ul>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/968cc602-557f-4958-8bfc-637a74505a25.png" alt="Compositional Archetypes">
+                </div>
+            </div>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>Semantics and Symbolism: The Protective Power of Naqsh</h3>
+                    <p>In the traditional Uzbek worldview, beauty was inseparable from spiritual and functional efficacy. Naqsh served as a form of "visual prayer" or protective talisman ensuring health and prosperity of the household.</p>
+                    <p style="margin-top: 1rem;"><strong>Apotropaic Motifs (Evil Eye Protection):</strong></p>
+                    <ul>
+                        <li><strong>Pepper (Qalampir):</strong> "Poisonous heat" believed to burn away evil intent</li>
+                        <li><strong>Knife (Pichoq):</strong> Sharp weapon cutting through misfortune</li>
+                        <li><strong>Lamp (Chiroq):</strong> Light of knowledge and divine protection</li>
+                        <li><strong>Almond (Bodom):</strong> Paradoxical symbol - sweet yet poisonous</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Fertility and Abundance Motifs:</strong></p>
+                    <ul>
+                        <li><strong>Pomegranate (Anorgul):</strong> Universal symbol of fertility and family prosperity</li>
+                        <li><strong>Willow (Majnuntol):</strong> Sacred tree driving away evil spirits</li>
+                        <li><strong>Fish (Baliq):</strong> Purity of water and reproductive health</li>
+                    </ul>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/7158bfd7-a555-489d-a95f-9873f8fb9646.jpg" alt="Symbolic Motifs">
+                </div>
+            </div>
+
+            <div class="pattern-item">
+                <div class="pattern-content">
+                    <h3>Technical Methodologies: The Engraver's Toolkit</h3>
+                    <p>The creation of engraved copper is a laborious process requiring high degree of physical strength and fine motor control. The process is divided among three specialists: the <strong>misgar</strong> (coppersmith), <strong>rikhtagar</strong> (metal caster), and <strong>nakkoshzarbi</strong> (engraver).</p>
+                    <p style="margin-top: 1rem;"><strong>Primary Engraving Techniques:</strong></p>
+                    <ul>
+                        <li><strong>Kandakori (Deep Engraving):</strong> Carving deep into metal creating high-relief; background is textured with fine punch</li>
+                        <li><strong>Chizma (Shallow Engraving):</strong> Scratching or lightly chasing pattern without removing significant metal, allowing finer detail</li>
+                        <li><strong>Shabaka (Openwork):</strong> Metal completely cut through creating lace-like effect</li>
+                        <li><strong>Mor-pech (Inlaying):</strong> Fine silver wires or semi-precious stones set into copper</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Traditional Tools:</strong> Qalam (chisel), Bolgha (hammer), Pargor (compass), Randa (polishing tool)</p>
+                </div>
+                <div class="pattern-image">
+                    <img src="Patterns/906b2b51-6177-4311-bbb2-5ad465cc7692.png" alt="Engraving Techniques">
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Regional Schools: Comparative Analysis of Style and Technique</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Regional School</th>
+                            <th>Depth of Engraving</th>
+                            <th>Primary Focus</th>
+                            <th>Distinguishing Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bukhara</strong></td>
+                            <td>Deep (Kandakori)</td>
+                            <td>Large floral motifs & Calligraphy</td>
+                            <td>Hatched backgrounds; classical proportions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Khiva</strong></td>
+                            <td>Deep & Smooth</td>
+                            <td>Rich floral configured lattice</td>
+                            <td>Black/Red varnish backgrounds; smooth relief</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kokand</strong></td>
+                            <td>Shallow (Chizma)</td>
+                            <td>Intricate floral & Architecture</td>
+                            <td>Very fine detail; mythical beasts and scenes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tashkent</strong></td>
+                            <td>Bold & Large</td>
+                            <td>Everyday objects & Bold foliage</td>
+                            <td>Practical forms; "button" (tugmacha) motifs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Karshi</strong></td>
+                            <td>Medium</td>
+                            <td>Medallions & Color inlay</td>
+                            <td>Turquoise, glass, and silver inlays</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-intro" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem;">The Enduring Significance of Naqsh</h3>
+                <p>The analysis of Uzbek national patterns in copper engraving reveals a discipline far more than decorative craft—it is a profound synthesis of history, mathematics, and spiritual belief. The persistence of motifs like the islimi spiral, mehrob arch, and chashmi bulbul dot across centuries demonstrates the deep resilience of the Uzbek aesthetic identity.</p>
+                <p style="margin-top: 1rem;">These patterns serve as a bridge between ancient Silk Road traditions and contemporary aspirations of a modernizing nation. Whether it is the deep, rigorous relief of a Bukhara tray or the microscopic lines of a Kokand jug, naqsh remains the "eternal line" that defines the cultural landscape of Uzbekistan. As long as the nakkoshzarbi continues to strike his chisel against red copper, the visual language of the ancestors will continue to speak to the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schools" class="section">
+        <div class="container">
+            <h2>Regional Schools</h2>
+            <div class="schools-grid">
+                <a href="Schools/buxoro.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/Bukhara school.jpg" alt="Buxoro"></div>
+                        <div class="school-body">
+                            <h3>Buxoro Maktabi</h3>
+                            <p>Famous for elegant designs, "Chekma" (dotted background), and "Minoqoriy" (enamel painting).</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Schools/samarqand.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/Smarkand.png" alt="Samarqand"></div>
+                        <div class="school-body">
+                            <h3>Samarqand Maktabi</h3>
+                            <p>Known for geometric patterns and "Chorbarg" (four-petal flower) motifs. Historic center of trade.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Schools/fargona.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/kokand.jpg" alt="Fargona / Kokand"></div>
+                        <div class="school-body">
+                            <h3>Farg'ona (Qo'qon) Maktabi</h3>
+                            <p>Known for <strong>deep engraving</strong>, precise lines, and animal figures (lions, fish).</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Schools/xorazm.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/Xorazm.jpg" alt="Xorazm"></div>
+                        <div class="school-body">
+                            <h3>Xorazm (Xiva) Maktabi</h3>
+                            <p>Distinctive use of <strong>red or black varnish</strong> backgrounds and "Aylanma Islimiy" spirals.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Schools/toshkent.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/Tashkemt.jpg" alt="Toshkent"></div>
+                        <div class="school-body">
+                            <h3>Toshkent Maktabi</h3>
+                            <p>Simpler patterns with plain backgrounds. Famous for "Piltalik" tea urns.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Schools/qarshi.html" class="school-card-link">
+                    <div class="school-card">
+                        <div class="school-header"><img src="Cities/karshi.jpg" alt="Qarshi"></div>
+                        <div class="school-body">
+                            <h3>Qarshi Maktabi</h3>
+                            <p>Known for inlaying colored glass (turquoise) and using colored varnishes.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2>Gallery of Masterpieces</h2>
+            <p>Historical examples of Uzbek Kandakorlik.</p>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-20-33.jpg" alt="Gallery photo 1">
+                    <div class="caption"><strong>Masterpiece 1</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-20-48.jpg" alt="Gallery photo 2">
+                    <div class="caption"><strong>Masterpiece 2</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-20-53.jpg" alt="Gallery photo 3">
+                    <div class="caption"><strong>Masterpiece 3</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-04.jpg" alt="Gallery photo 4">
+                    <div class="caption"><strong>Masterpiece 4</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-08.jpg" alt="Gallery photo 5">
+                    <div class="caption"><strong>Masterpiece 5</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-11.jpg" alt="Gallery photo 6">
+                    <div class="caption"><strong>Masterpiece 6</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-15.jpg" alt="Gallery photo 7">
+                    <div class="caption"><strong>Masterpiece 7</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-18.jpg" alt="Gallery photo 8">
+                    <div class="caption"><strong>Masterpiece 8</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-22.jpg" alt="Gallery photo 9">
+                    <div class="caption"><strong>Masterpiece 9</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-25.jpg" alt="Gallery photo 10">
+                    <div class="caption"><strong>Masterpiece 10</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-30.jpg" alt="Gallery photo 11">
+                    <div class="caption"><strong>Masterpiece 11</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-33.jpg" alt="Gallery photo 12">
+                    <div class="caption"><strong>Masterpiece 12</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-39.jpg" alt="Gallery photo 13">
+                    <div class="caption"><strong>Masterpiece 13</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-42.jpg" alt="Gallery photo 14">
+                    <div class="caption"><strong>Masterpiece 14</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-46.jpg" alt="Gallery photo 15">
+                    <div class="caption"><strong>Masterpiece 15</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-50.jpg" alt="Gallery photo 16">
+                    <div class="caption"><strong>Masterpiece 16</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-54.jpg" alt="Gallery photo 17">
+                    <div class="caption"><strong>Masterpiece 17</strong><br></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo_2025-12-23_22-21-57.jpg" alt="Gallery photo 18">
+                    <div class="caption"><strong>Masterpiece 18</strong><br></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 O‘zbek Kandakorlik San'ati.</p>
+        <p>Based on historical archives and documents regarding the schools of Bukhara, Samarkand, Kokand, Khiva, and Tashkent.</p>
+    </footer>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <button class="lightbox-nav prev" aria-label="Previous">‹</button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" src="" alt="">
+            <div class="lightbox-caption" role="status"></div>
+        </div>
+        <button class="lightbox-nav next" aria-label="Next">›</button>
+    </div>
+
+    <!-- SCHOOLS SECTION -->
+    <section id="schools" class="section">
+        <div class="container">
+            <h2>Schools & Cities</h2>
+            <p>Explore the regional schools of Uzbek coppersmithing across different cities</p>
+            <div id="schools-container" class="quizzes-container" style="margin-top: 2rem;">
+                <!-- Schools will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZZES SECTION -->
+    <section id="quizzes" class="section">
+        <div class="container">
+            <h2>Learning Quizzes</h2>
+            <p>Test your knowledge about Uzbek coppersmithing and cultural heritage</p>
+            <div id="quizzes-container" class="quizzes-container" style="margin-top: 2rem;">
+                <!-- Quizzes will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SCORES SECTION -->
+    <section id="scores" class="section">
+        <div class="container">
+            <h2>My Learning Progress</h2>
+            <div id="scores-container">
+                <!-- Scores will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showSection(sectionId, btn) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            if (btn) btn.classList.add('active');
+
+            requestAnimationFrame(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+
+        // Masonry-like grid using CSS Grid row-span calculation + Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Reveal animation using IntersectionObserver
+            const reveal = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.gallery-item').forEach(el => reveal.observe(el));
+
+                // Lightbox functionality
+                const lightbox = document.getElementById('lightbox');
+                const lbImg = lightbox.querySelector('.lightbox-img');
+                const lbCaption = lightbox.querySelector('.lightbox-caption');
+                const lbClose = lightbox.querySelector('.lightbox-close');
+                const lbPrev = lightbox.querySelector('.lightbox-nav.prev');
+                const lbNext = lightbox.querySelector('.lightbox-nav.next');
+                const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+                let currentIndex = -1;
+
+                function openLightbox(index) {
+                    if (index < 0 || index >= galleryImgs.length) return;
+                    const img = galleryImgs[index];
+                    lbImg.src = img.src;
+                    lbImg.alt = img.alt || '';
+                    const cap = img.closest('.gallery-item').querySelector('.caption');
+                    lbCaption.textContent = cap ? cap.innerText.replace(/\n/g,' ').trim() : '';
+                    lightbox.classList.add('open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    currentIndex = index;
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('open');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    lbImg.src = '';
+                    currentIndex = -1;
+                    document.body.style.overflow = '';
+                }
+
+                function showPrev() { openLightbox((currentIndex - 1 + galleryImgs.length) % galleryImgs.length); }
+                function showNext() { openLightbox((currentIndex + 1) % galleryImgs.length); }
+
+                galleryImgs.forEach((g, i) => {
+                    const item = g.closest('.gallery-item');
+                    // add overlay button
+                    const overlay = document.createElement('div');
+                    overlay.className = 'overlay';
+                    const btn = document.createElement('button');
+                    btn.className = 'btn';
+                    btn.setAttribute('aria-hidden', 'true');
+                    btn.textContent = 'Click to Open';
+                    overlay.appendChild(btn);
+                    item.style.position = 'relative';
+                    item.insertBefore(overlay, item.firstChild);
+
+                    g.style.cursor = 'pointer';
+                    // click opens lightbox
+                    g.addEventListener('click', (e) => { openLightbox(i); });
+                    btn.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i); });
+
+                    // handle image load error -> mark broken
+                    g.addEventListener('error', () => {
+                        item.classList.add('broken');
+                        g.style.display = 'none';
+                    });
+                });
+
+                lbClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+                lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+                lbNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
+                document.addEventListener('keydown', (e) => {
+                    if (currentIndex === -1) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') showPrev();
+                    if (e.key === 'ArrowRight') showNext();
+                });
+
+            });
+
+        // ========== API & AUTHENTICATION ==========
+        const API_URL = 'http://localhost:8000';
+        let currentUser = null;
+        let authToken = localStorage.getItem('token');
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        // Check if user is already logged in
+        window.addEventListener('DOMContentLoaded', () => {
+            if (authToken) {
+                verifyToken();
+            }
+            updateAuthUI();
+            switchLanguage(currentLanguage, false);
+        });
+
+        // API Helper: Fetch wrapper with auth
+        async function apiCall(endpoint, options = {}) {
+            const headers = {
+                'Content-Type': 'application/json',
+                ...(authToken && { 'Authorization': `Bearer ${authToken}` }),
+                ...options.headers
+            };
+            
+            const response = await fetch(`${API_URL}${endpoint}`, {
+                ...options,
+                headers
+            });
+            
+            if (response.status === 401) {
+                logoutUser();
+                throw new Error('Unauthorized');
+            }
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({ detail: 'Unknown error' }));
+                throw new Error(error.detail || 'API Error');
+            }
+            
+            return response.json();
+        }
+
+        // AUTHENTICATION FUNCTIONS
+        async function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+            
+            try {
+                const data = await apiCall('/api/auth/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ username, password })
+                });
+                
+                authToken = data.access_token;
+                localStorage.setItem('token', authToken);
+                
+                // Fetch user data
+                await verifyToken();
+                
+                closeLoginModal();
+                updateAuthUI();
+                showSection('home');
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const full_name = document.getElementById('register-fullname').value;
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            const errorDiv = document.getElementById('register-error');
+            
+            if (password !== confirm) {
+                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            try {
+                const data = await apiCall('/api/auth/register', {
+                    method: 'POST',
+                    body: JSON.stringify({ username, email, password, full_name })
+                });
+                
+                authToken = data.access_token;
+                localStorage.setItem('token', authToken);
+                
+                // Fetch user data
+                await verifyToken();
+                
+                closeRegisterModal();
+                updateAuthUI();
+                showSection('home');
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        function logoutUser() {
+            authToken = null;
+            currentUser = null;
+            localStorage.removeItem('token');
+            updateAuthUI();
+            showSection('home');
+        }
+
+        async function verifyToken() {
+            try {
+                const data = await apiCall('/api/auth/me');
+                currentUser = data;
+            } catch (error) {
+                logoutUser();
+            }
+        }
+
+        function updateAuthUI() {
+            const authGroup = document.getElementById('auth-buttons-group');
+            const userProfile = document.getElementById('user-profile');
+            const scoresLink = document.getElementById('scores-link');
+            const adminBtn = document.getElementById('admin-btn');
+            
+            if (authToken && currentUser) {
+                authGroup.style.display = 'none';
+                userProfile.style.display = 'flex';
+                scoresLink.style.display = 'block';
+                
+                // Show admin button only for admin users
+                if (currentUser.role === 'admin') {
+                    adminBtn.style.display = 'block';
+                } else {
+                    adminBtn.style.display = 'none';
+                }
+                
+                document.getElementById('user-display-name').textContent = currentUser.full_name || currentUser.username;
+                const roleText = currentUser.role === 'teacher' ? 'Instructor' : 
+                                 currentUser.role === 'admin' ? 'Administrator' : 'Student';
+                document.getElementById('user-display-role').textContent = roleText;
+            } else {
+                authGroup.style.display = 'flex';
+                userProfile.style.display = 'none';
+                scoresLink.style.display = 'none';
+                adminBtn.style.display = 'none';
+            }
+        }
+
+        // MODAL FUNCTIONS
+        function openLoginModal() {
+            document.getElementById('login-error').style.display = 'none';
+            document.getElementById('login-modal').classList.add('open');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.remove('open');
+            document.getElementById('login-username').value = '';
+            document.getElementById('login-password').value = '';
+        }
+
+        function openRegisterModal() {
+            document.getElementById('register-error').style.display = 'none';
+            document.getElementById('register-modal').classList.add('open');
+        }
+
+        function closeRegisterModal() {
+            document.getElementById('register-modal').classList.remove('open');
+            document.getElementById('register-fullname').value = '';
+            document.getElementById('register-username').value = '';
+            document.getElementById('register-email').value = '';
+            document.getElementById('register-password').value = '';
+            document.getElementById('register-confirm').value = '';
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').classList.remove('open');
+        }
+
+        // ADMIN PANEL FUNCTIONS
+        function openAdminPanel() {
+            document.getElementById('admin-modal').classList.add('open');
+            loadAdminUsersList();
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('admin-modal').classList.remove('open');
+        }
+
+        function switchAdminTab(e, tabName) {
+            e.preventDefault();
+            // Hide all tab contents
+            document.querySelectorAll('.admin-tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.admin-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            e.target.classList.add('active');
+        }
+
+        async function handleCreateUser(e) {
+            e.preventDefault();
+            const fullName = document.getElementById('admin-fullname').value;
+            const username = document.getElementById('admin-username').value;
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            const role = document.getElementById('admin-role').value;
+            
+            const errorDiv = document.getElementById('admin-create-error');
+            const successDiv = document.getElementById('admin-create-success');
+            
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+            
+            try {
+                const data = await apiCall('/api/auth/create-user', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password,
+                        full_name: fullName,
+                        role: role
+                    })
+                });
+                
+                successDiv.textContent = `✓ User "${username}" created successfully as ${role.toUpperCase()}`;
+                successDiv.style.display = 'block';
+                
+                // Clear form
+                document.getElementById('admin-fullname').value = '';
+                document.getElementById('admin-username').value = '';
+                document.getElementById('admin-email').value = '';
+                document.getElementById('admin-password').value = '';
+                
+                // Reload users list
+                loadAdminUsersList();
+            } catch (error) {
+                errorDiv.textContent = '✗ Error: ' + error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        async function loadAdminUsersList() {
+            try {
+                const data = await apiCall('/api/schools/');  // Using schools endpoint temporarily as placeholder
+                // In a real scenario, you'd have a /api/users endpoint
+                const container = document.getElementById('admin-users-list');
+                container.innerHTML = '<p>User management endpoint coming soon. Create users above.</p>';
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+
+        // Close modals on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('open');
+            });
+        });
+
+        // SCHOOLS LOADING
+        async function loadSchools() {
+            try {
+                const data = await apiCall('/api/schools/');
+                const container = document.getElementById('schools-container');
+                container.innerHTML = '';
+                
+                if (data.schools && data.schools.length === 0) {
+                    container.innerHTML = '<p>No schools available yet.</p>';
+                    return;
+                }
+                
+                data.schools.forEach(school => {
+                    const card = document.createElement('div');
+                    card.className = 'quiz-card';
+                    card.innerHTML = `
+                        <h3>${school.name}</h3>
+                        <p>${school.description}</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">
+                            <strong>City:</strong> ${school.city}
+                        </p>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading schools:', error);
+                document.getElementById('schools-container').innerHTML = '<p>Error loading schools.</p>';
+            }
+        }
+
+        // QUIZZES LOADING
+        async function loadQuizzes() {
+            if (!authToken) {
+                document.getElementById('quizzes-container').innerHTML = '<p>Please sign in to access quizzes.</p>';
+                return;
+            }
+            
+            try {
+                const data = await apiCall('/api/quizzes/');
+                const container = document.getElementById('quizzes-container');
+                container.innerHTML = '';
+                
+                if (data.quizzes && data.quizzes.length === 0) {
+                    container.innerHTML = '<p>No quizzes available yet.</p>';
+                    return;
+                }
+                
+                data.quizzes.forEach(quiz => {
+                    const card = document.createElement('div');
+                    card.className = 'quiz-card';
+                    card.innerHTML = `
+                        <h3>${quiz.title}</h3>
+                        <p>${quiz.description}</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">
+                            <strong>Questions:</strong> ${quiz.question_count || 0}
+                        </p>
+                        <button class="form-submit" onclick="loadQuizDetails(${quiz.id})">Start Quiz</button>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading quizzes:', error);
+                document.getElementById('quizzes-container').innerHTML = '<p>Error loading quizzes.</p>';
+            }
+        }
+
+        async function loadQuizDetails(quizId) {
+            try {
+                const data = await apiCall(`/api/quizzes/${quizId}/for-student`);
+                const modal = document.getElementById('quiz-modal');
+                const content = document.getElementById('quiz-modal-content');
+                
+                let questionsHTML = '';
+                data.questions.forEach((q, idx) => {
+                    questionsHTML += `
+                        <div class="question-item" style="margin-bottom: 2rem; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+                            <h4>${idx + 1}. ${q.question_text}</h4>
+                            <div id="answers-${q.id}">
+                    `;
+                    q.answers.forEach(a => {
+                        questionsHTML += `
+                            <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                                <input type="radio" name="answer-${q.id}" value="${a.id}"> ${a.answer_text}
+                            </label>
+                        `;
+                    });
+                    questionsHTML += `</div></div>`;
+                });
+                
+                content.innerHTML = `
+                    <h2>${data.title}</h2>
+                    <p>${data.description}</p>
+                    <form onsubmit="submitQuiz(event, ${quizId})">
+                        ${questionsHTML}
+                        <button type="submit" class="form-submit">Submit Answers</button>
+                    </form>
+                `;
+                
+                modal.classList.add('open');
+            } catch (error) {
+                alert('Error loading quiz: ' + error.message);
+            }
+        }
+
+        async function submitQuiz(e, quizId) {
+            e.preventDefault();
+            try {
+                // Collect answers
+                const answers = {};
+                const form = e.target;
+                const radioButtons = form.querySelectorAll('input[type="radio"]:checked');
+                radioButtons.forEach(rb => {
+                    const questionId = parseInt(rb.name.replace('answer-', ''));
+                    answers[questionId] = parseInt(rb.value);
+                });
+                
+                const data = await apiCall(`/api/quizzes/${quizId}/submit`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        answers: answers,
+                        time_taken_seconds: 300
+                    })
+                });
+                
+                alert(`Quiz submitted! Score: ${data.score}/${data.total_questions}`);
+                closeQuizModal();
+                loadScores();
+            } catch (error) {
+                alert('Error submitting quiz: ' + error.message);
+            }
+        }
+
+        // SCORES LOADING
+        async function loadScores() {
+            if (!authToken) {
+                document.getElementById('scores-container').innerHTML = '<p>Please sign in to view your scores.</p>';
+                return;
+            }
+            
+            try {
+                const data = await apiCall('/api/scores/my-scores');
+                const container = document.getElementById('scores-container');
+                container.innerHTML = '';
+                
+                if (data.scores && data.scores.length === 0) {
+                    container.innerHTML = '<p>You haven\'t taken any quizzes yet. <a href="#" onclick="showSection(\'quizzes\', null); return false;">Start learning now!</a></p>';
+                    return;
+                }
+                
+                data.scores.forEach(score => {
+                    const percentage = (score.score / score.total_questions * 100).toFixed(0);
+                    const passed = percentage >= 75;
+                    const card = document.createElement('div');
+                    card.className = 'score-card';
+                    card.innerHTML = `
+                        <h3>${score.quiz_title}</h3>
+                        <div class="score-badge" style="font-size: 2rem; margin: 1rem 0; color: ${passed ? '#27ae60' : '#e74c3c'};">
+                            ${score.score}/${score.total_questions}
+                        </div>
+                        <p style="font-size: 1.5rem; font-weight: bold; color: ${passed ? '#27ae60' : '#e74c3c'};">
+                            ${percentage}%
+                        </p>
+                        <p style="color: var(--text-light);">
+                            <strong>Status:</strong> ${passed ? '✓ Passed' : '✗ Needs Improvement'}
+                        </p>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading scores:', error);
+                document.getElementById('scores-container').innerHTML = '<p>Error loading your scores.</p>';
+            }
+        }
+
+        // LANGUAGE SWITCHING
+        async function switchLanguage(lang, reload = true) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update language button styles
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            if (reload) {
+                // Reload quizzes, schools, scores in new language
+                loadQuizzes();
+                loadSchools();
+                if (authToken) loadScores();
+            }
+        }
+
+        // SECTION NAVIGATION
+        function showSection(sectionId, button) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            
+            // Show selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+            
+            // Update nav button styles
+            if (button) {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+            }
+            
+            // Load content for specific sections
+            if (sectionId === 'schools') loadSchools();
+            if (sectionId === 'quizzes') loadQuizzes();
+            if (sectionId === 'scores') loadScores();
+        }
+    </script>
+</body>
+</html>
