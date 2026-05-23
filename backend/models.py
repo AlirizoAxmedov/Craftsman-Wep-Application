@@ -1,8 +1,11 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ForeignKey, Float, Enum, JSON
 from sqlalchemy.orm import relationship
 from database import Base
-from datetime import datetime
+from datetime import datetime, timezone
 import enum
+
+def _now():
+    return datetime.now(timezone.utc)
 
 class UserRole(str, enum.Enum):
     STUDENT = "student"
@@ -19,8 +22,8 @@ class User(Base):
     full_name = Column(String(120), nullable=True)
     role = Column(Enum(UserRole), default=UserRole.STUDENT)
     is_active = Column(Boolean, default=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=_now)
+    updated_at = Column(DateTime, default=_now, onupdate=_now)
     
     # Relationships
     scores = relationship("StudentScore", back_populates="student", cascade="all, delete-orphan")
@@ -56,12 +59,12 @@ class Quiz(Base):
     time_limit_minutes = Column(Integer, default=30)
     passing_score = Column(Float, default=70.0)
     is_published = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=_now)
+    updated_at = Column(DateTime, default=_now, onupdate=_now)
     
     # Relationships
     school = relationship("School", back_populates="quizzes")
-    questions = relationship("Question", back_populates="quiz", cascade="all, delete-orphan")
+    questions = relationship("Question", back_populates="quiz", cascade="all, delete-orphan", order_by="Question.order")
     scores = relationship("StudentScore", back_populates="quiz", cascade="all, delete-orphan")
     
     def __repr__(self):
@@ -76,11 +79,11 @@ class Question(Base):
     question_type = Column(String(20), default="multiple_choice")  # multiple_choice, true_false, short_answer
     order = Column(Integer, default=0)
     points = Column(Float, default=1.0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=_now)
     
     # Relationships
     quiz = relationship("Quiz", back_populates="questions")
-    answers = relationship("Answer", back_populates="question", cascade="all, delete-orphan")
+    answers = relationship("Answer", back_populates="question", cascade="all, delete-orphan", order_by="Answer.order")
     
     def __repr__(self):
         return f"<Question {self.id}>"
@@ -94,7 +97,7 @@ class Answer(Base):
     is_correct = Column(Boolean, default=False)
     order = Column(Integer, default=0)
     explanation = Column(Text, nullable=True)  # Explanation if answer is correct/incorrect
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=_now)
     
     # Relationships
     question = relationship("Question", back_populates="answers")
@@ -114,12 +117,16 @@ class StudentScore(Base):
     answers_json = Column(JSON, nullable=True)  # Store all answers as JSON
     is_passed = Column(Boolean, default=False)
     time_taken_seconds = Column(Integer, nullable=True)
-    submitted_at = Column(DateTime, default=datetime.utcnow)
+    submitted_at = Column(DateTime, default=_now)
     
     # Relationships
     student = relationship("User", back_populates="scores")
     quiz = relationship("Quiz", back_populates="scores")
-    
+
+    @property
+    def quiz_title(self):
+        return self.quiz.title if self.quiz else None
+
     def __repr__(self):
         return f"<StudentScore {self.student_id} - {self.quiz_id}>"
 
@@ -131,8 +138,8 @@ class Translation(Base):
     english = Column(Text, nullable=True)
     russian = Column(Text, nullable=True)
     uzbek = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=_now)
+    updated_at = Column(DateTime, default=_now, onupdate=_now)
     
     def __repr__(self):
         return f"<Translation {self.key}>"

@@ -24,33 +24,21 @@ async def get_current_user(request: Request) -> TokenData:
     token = auth_header.replace("Bearer ", "")
     return decode_token(token)
 
-@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/register", response_model=Token, status_code=status.HTTP_201_CREATED)
 async def register(
     user_data: UserRegister,
     db: Session = Depends(get_db)
 ):
-    """
-    Register a new user account.
-    
-    Security considerations:
-    - Validates email format (via Pydantic EmailStr)
-    - Enforces strong password (uppercase, digit, min 8 chars)
-    - Checks for duplicate username/email
-    - Hashes password with bcrypt+12 rounds
-    """
-    
-    # Check for existing user
     existing_user = db.query(User).filter(
         (User.username == user_data.username) | (User.email == user_data.email)
     ).first()
-    
+
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username or email already registered"
+            detail="Foydalanuvchi nomi yoki email allaqachon ro'yxatdan o'tgan"
         )
-    
-    # Create new user with hashed password
+
     new_user = User(
         username=user_data.username,
         email=user_data.email,
@@ -58,12 +46,22 @@ async def register(
         full_name=user_data.full_name,
         role=UserRole.STUDENT
     )
-    
+
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    
-    return new_user
+
+    access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        data={"user_id": new_user.id, "username": new_user.username, "role": new_user.role.value},
+        expires_delta=access_token_expires
+    )
+
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "expires_in": settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60
+    }
 
 @router.post("/login", response_model=Token)
 async def login(
@@ -133,60 +131,36 @@ async def get_current_user_info(
     
     return user
 
-@router.post("/refresh")
-async def refresh_token(current_user: dict):
-    """
-    Refresh JWT token.
-    Issues a new token with extended validity.
-    """
-    access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+@router.post("/refresh", response_model=Token)
+async def refresh_token(current_user: TokenData = Depends(get_current_user), db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == current_user.user_id, User.is_active == True).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Foydalanuvchi topilmadi yoki bloklangan")
     access_token = create_access_token(
-        data={
-            "user_id": current_user.get("user_id"),
-            "username": current_user.get("username"),
-            "role": current_user.get("role")
-        },
-        expires_delta=access_token_expires
+        data={"user_id": user.id, "username": user.username, "role": user.role.value},
+        expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     )
-    
-    return {
-        "access_token": access_token,
-        "token_type": "bearer",
-        "expires_in": settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60
-    }
+    return {"access_token": access_token, "token_type": "bearer", "expires_in": settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60}
+
 @router.post("/create-user", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 async def create_user_by_admin(
     user_data: UserCreateByAdmin,
+    current_user: TokenData = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """
-    Create a new user with specific role (requires admin access).
-    
-    Admin can create users with STUDENT, TEACHER, or ADMIN roles.
-    Usage: Send POST request with Authorization header containing admin JWT token.
-    
-    Example:
-    {
-        "username": "newteacher",
-        "email": "teacher@example.com",
-        "password": "SecurePass123",
-        "full_name": "New Teacher",
-        "role": "teacher"
-    }
-    """
-    
-    # Check for existing user
+    if current_user.role != UserRole.ADMIN:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Administrator huquqi talab etiladi")
+
     existing_user = db.query(User).filter(
         (User.username == user_data.username) | (User.email == user_data.email)
     ).first()
-    
+
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username or email already exists"
+            detail="Foydalanuvchi nomi yoki email allaqachon mavjud"
         )
-    
-    # Create new user with specified role
+
     new_user = User(
         username=user_data.username,
         email=user_data.email,
@@ -194,9 +168,9 @@ async def create_user_by_admin(
         full_name=user_data.full_name,
         role=user_data.role
     )
-    
+
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    
+
     return new_user

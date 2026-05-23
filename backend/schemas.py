@@ -132,8 +132,8 @@ class QuizCreate(BaseModel):
     school_id: int
     title: str
     description: Optional[str] = None
-    time_limit_minutes: int = 30
-    passing_score: float = 70.0
+    time_limit_minutes: int = Field(default=30, ge=1, le=480)
+    passing_score: float = Field(default=70.0, ge=0, le=100)
     questions: List[QuestionCreate]
 
 class QuizResponse(BaseModel):
@@ -174,13 +174,14 @@ class StudentScoreResponse(BaseModel):
     id: int
     student_id: int
     quiz_id: int
+    quiz_title: Optional[str] = None
     score: float
     max_score: float
     percentage: float
     is_passed: bool
     time_taken_seconds: Optional[int]
     submitted_at: datetime
-    
+
     class Config:
         from_attributes = True
 

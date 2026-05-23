@@ -1,64 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farg'ona Maktabi - Uzbek Kandakorlik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Farg'ona Kandakorlik Maktabi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --bg:#F9F9FA; --surface:#FFFFFF; --text:#1A1B1E; --muted:#6B6B6B; --accent:#B87333; --divider:rgba(184,115,51,0.12); --radius:10px; }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial; line-height:1.65; color:var(--text); background-color:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-        body::before { content:""; position:fixed; inset:0; background-image:url('../Patterns/2927c9cf-4590-4957-a2a1-8161a5f08b86.png'); background-repeat:repeat; background-size:600px; opacity:0.04; pointer-events:none; z-index:-1; }
-        header { background:transparent; color:var(--text); padding:1rem 0; border-bottom:1px solid var(--divider); backdrop-filter:blur(4px); }
-        nav { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; }
-        .logo { font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; font-weight:700; color:var(--text); }
-        nav a { color:var(--muted); text-decoration:none; padding:0.4rem 0.75rem; transition:color 0.18s ease, transform 0.18s ease; font-weight:600; border-radius:6px; }
-        nav a:hover { color:var(--accent); transform:translateY(-2px); }
-        .container { max-width:1200px; margin:0 auto; padding:2rem; }
-        h2 { font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:2.25rem; color:var(--text); border-bottom:2px solid rgba(0,0,0,0.04); display:inline-block; margin-bottom:1rem; padding-bottom:0.4rem; }
-        h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.25rem; color:var(--text); margin-top:1.75rem; margin-bottom:0.75rem; font-weight:600; }
-        ul, ol { margin-left:2rem; margin-bottom:1rem; color:var(--muted); }
-        p { margin-bottom:1rem; font-size:1.05rem; color:var(--muted); }
-        footer { background:transparent; color:var(--muted); text-align:center; padding:3rem 1rem; margin-top:4rem; border-top:1px solid var(--divider); }
+        :root {
+            --copper: #B87333;
+            --copper-dark: #8B5422;
+            --gold: #C9A84C;
+            --cream: #FDF8F0;
+            --dark: #1C1208;
+            --text: #2C1A06;
+            --text-muted: #7A5C3A;
+            --shadow: rgba(184,115,51,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(184,115,51,0.06) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+        header { position: sticky; top: 0; z-index: 100; background: rgba(253,248,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(184,115,51,0.2); padding: 1rem 2rem; }
+        .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--copper-dark); }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--copper); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.5rem 1rem; border: 1.5px solid var(--copper); border-radius: 6px; transition: all 0.2s ease; }
+        .back-btn:hover { background: var(--copper); color: #fff; }
+        .hero { position: relative; height: 420px; overflow: hidden; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.6) saturate(0.9); }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,18,8,0.3) 0%, rgba(28,18,8,0.7) 100%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 3rem 2rem; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(201,168,76,0.85); color: var(--dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; line-height: 1.2; text-shadow: 0 2px 20px rgba(0,0,0,0.5); margin-bottom: 0.75rem; }
+        .hero-sub { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 600px; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 1; }
+        .intro-box { background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.06)); border: 1px solid rgba(184,115,51,0.2); border-left: 4px solid var(--copper); border-radius: 12px; padding: 2rem 2.5rem; margin-bottom: 3rem; font-size: 1.08rem; color: var(--text-muted); line-height: 1.8; }
+        .section { margin-bottom: 3.5rem; }
+        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .section-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--copper), var(--gold)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 12px var(--shadow); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--copper-dark); font-weight: 700; }
+        .section p { color: var(--text-muted); font-size: 1.03rem; margin-bottom: 1rem; line-height: 1.8; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+        .card { background: #fff; border: 1px solid rgba(184,115,51,0.15); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 12px var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow); }
+        .card-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--copper-dark); margin-bottom: 0.5rem; }
+        .card-text { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; }
+        .masters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .master-card { background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.05)); border: 1px solid rgba(184,115,51,0.2); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; transition: background 0.2s, transform 0.2s; }
+        .master-card:hover { background: linear-gradient(135deg, rgba(184,115,51,0.15), rgba(201,168,76,0.1)); transform: translateY(-2px); }
+        .master-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, var(--copper), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; text-align: center; }
+        .master-name { font-weight: 600; color: var(--text); font-size: 0.92rem; line-height: 1.3; }
+        .timeline { position: relative; padding-left: 2rem; margin-top: 1.5rem; }
+        .timeline::before { content: ''; position: absolute; left: 0.4rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--copper), transparent); }
+        .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 1rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -1.65rem; top: 0.4rem; width: 10px; height: 10px; background: var(--copper); border-radius: 50%; border: 2px solid var(--cream); box-shadow: 0 0 0 2px var(--copper); }
+        .timeline-year { font-size: 0.82rem; font-weight: 700; color: var(--copper); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+        .timeline-text { font-size: 0.98rem; color: var(--text-muted); }
+        .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(184,115,51,0.3), transparent); margin: 2.5rem 0; }
+        footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 2.5rem; font-size: 0.92rem; }
+        footer span { color: var(--gold); }
+        @media (max-width: 768px) { .hero { height: 300px; } .cards-grid { grid-template-columns: 1fr; } .masters-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } .content { padding: 2rem 1.25rem 4rem; } }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="header-inner">
             <div class="logo">⚒ Kandakorlik</div>
-            <a href="../Craftsman2.html">← Back to Main</a>
-        </nav>
+            <a href="../Craftsman2.html#schools" class="back-btn">← Maktablar</a>
+        </div>
     </header>
 
-    <div class="container">
-        <h2>Farg'ona Maktabi (Fergana School)</h2>
-        
-        <h3>History</h3>
-        <p>The Fergana Valley, known for its fertile agricultural landscape and thriving trade routes, became a center of copper engraving by the 16th century. The Fergana school developed as a response to the region's unique aesthetic preferences and economic needs, creating functional yet beautiful copper vessels and decorative items.</p>
-        
-        <h3>Distinctive Style</h3>
-        <ul>
-            <li>Emphasis on bold, large-scale patterns that can be appreciated from a distance</li>
-            <li>Incorporation of dense botanical motifs reflecting the valley's agricultural heritage</li>
-            <li>Use of the "Hasht" (eight-fold) symmetry principle in composition</li>
-            <li>Prominent borders and frames around central designs</li>
-            <li>Practical functionality combined with artistic beauty</li>
-        </ul>
-        
-        <h3>Characteristics</h3>
-        <p>The Fergana school prioritizes balance between aesthetic beauty and practical function. Master craftsmen of this region created pieces that were as useful as they were beautiful—often producing large vessels for water storage, decorative plates for ceremonial purposes, and architectural fittings. The designs tend to be bold and clear, reflecting the tastes of the valley's inhabitants.</p>
-        
-        <h3>Notable Masters</h3>
-        <p>The Fergana school has produced renowned masters who specialized in creating large ceremonial vessels (Qazani) and architectural fittings for mosques and palaces. Their work is characterized by a perfect balance between tradition and innovation.</p>
-        
-        <h3>Legacy</h3>
-        <p>The Fergana school's emphasis on functionality influenced the development of copper craftsmanship throughout Central Asia. Their techniques for creating durable, beautiful functional items remain highly valued in traditional craftsmanship today.</p>
+    <div class="hero">
+        <img src="../Cities/kokand.jpg" alt="Farg'ona vodiysi">
+        <div class="hero-overlay">
+            <span class="hero-badge">Kandakorlik Maktabi</span>
+            <h1>Farg'ona Maktabi</h1>
+            <p class="hero-sub">Qo'qon, Marg'ilon, Namangan — klassik islimiy naqshlar vatani</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="intro-box">
+            Farg'ona vodiysiga Axsikent, Marg'ilon (Quva), Namangan, Qo'qon, Andijon shaharlari kiradi — ular qadimdan yirik madaniyat va hunarmandchilik markazi bo'lgan. Bu shaharlarning san'ati va madaniyatining bir-biriga ta'siri hozirgacha sezilib turadi.
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏛</div>
+                <h2 class="section-title">Tarix</h2>
+            </div>
+            <p>Mo'g'ul hukmrodligida shaharlar xarobaga aylandi. Undan keyingi o'zaro feodal urushlar Farg'ona vodiysini iqtisodiy o'sishiga juda katta salbiy ta'sir etdi. XVIII asrda mayda tarqoq feodal shaharlar birlashib Qo'qon xonligi vujudga keldi.</p>
+            <p>Bu vaqtga kelib Farg'ona iqtisodiy tomondan yaxshilandi. Farg'ona O'rta Osiyo shaharlari bilan Hindiston, Iroq, Afg'oniston, Rossiya davlatlari bilan savdo-sotiq qildi. Qo'qon kandakorlari ishlarini Samarqand, Toshkent, Buxoro va Sharq davlatlarida ko'rish mumkin edi.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">XVIII asr</div>
+                    <div class="timeline-text">Qo'qon xonligi tashkil topdi. Hunarmandchilik tez sur'atlar bilan rivojlandi. Qo'qon va Marg'ilon misgarlik va kandakorlik maktablari paydo bo'ldi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">XVIII–XIX asr</div>
+                    <div class="timeline-text">Rossiya bilan Qo'qon xonligi o'rtasida savdo-sotiq avjiga chiqdi. Rossiyadan mis plitalari olib kelindi. Metallsozlik maktablari vujudga keldi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">XIX asr</div>
+                    <div class="timeline-text">Kandakorlik maktablari shakllanib, yuzlab xalq ustalari yetishib chiqdi. Farg'ona naqsh uslubi o'zining yuqori cho'qqisiga erishdi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎨</div>
+                <h2 class="section-title">O'ziga Xos Uslub</h2>
+            </div>
+            <p>Farg'ona vodiysida mis buyumlariga klassik naqsh turi bo'lgan «islimiy» juda ko'p ishlatilgan. Farg'ona badiiy zarb san'ati boshqa viloyat badiiy zarb san'atidan naqshlarning mis ustiga chuqurroq kesilganligi va shu naqshlarning aniqligi bilan farq qiladi.</p>
+            <p>Qo'qon kandakorlarini turunj naqshlari boshqa shaharlarnikidan farq qilib o'ziga xos originallikka ega. Gul, barg, tanob, band uyg'unlashib bir butun ajoyib san'at asarini yaratadi.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <div class="card-title">Klassik Islimiy</div>
+                    <div class="card-text">Islimiy bargak, islimiy gulzor, islimiy madohil, islimiy qo'shbarg, islimiy qo'shband — bularning barchasi Farg'ona maktabida keng qo'llanilgan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌀</div>
+                    <div class="card-title">Turunj Naqsh</div>
+                    <div class="card-text">Qo'qon turunj naqshlari boshqa shaharlarnikidan farq qiladi. Original kompozitsiya va o'ziga xos uslub bilan ajralib turadi.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚔</div>
+                    <div class="card-title">Chuqur Kesma</div>
+                    <div class="card-text">Naqshlar mis ustiga chuqurroq kesilishi Farg'ona maktabining asosiy belgisi. Bu usul naqshlarga uch o'lchamlilik bergan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🦅</div>
+                    <div class="card-title">Hayvon Shakllari</div>
+                    <div class="card-text">Zoomorph naqshlar — qush, hayvon va boshqa jonzot tasvirlari Farg'ona maktabida alohida o'rin tutgan.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚙</div>
+                <h2 class="section-title">Kompozitsiya va Texnika</h2>
+            </div>
+            <p>Keng hoshiyali yo'llar islimiy, turunj va boshqa shaklli naqsh bilan, tor hoshiyalilari esa gul, nav, shingila, majnun barg naqshlari bilan, tik va yon naqshlar o'simliksimon naqshlar bilan uyg'unlashadi.</p>
+            <p>Kandakorlar qog'ozga chizilgan naqshlardan juda kam foydalanar edilar, chunki ular gul solishni yoddan bilar edilar. Ishlagan naqshlari hech biri takrorlanmas edi. Albatta har bir naqsh kompozitsiyasiga o'zgartirish kiritilar edi.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📏</div>
+                    <div class="card-title">Keng Hoshiyalar</div>
+                    <div class="card-text">Islimiy va turunj naqshlar bilan bezatilgan keng yo'llar buyumning asosiy bezak elementi hisoblanadi.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Tor Hoshiyalar</div>
+                    <div class="card-text">Gul, nav, shingila, majnun barg naqshlari kichik yo'llar uchun ishlatilib, asosiy naqshni qo'llab-quvvatlaydi.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <div class="card-title">Yoddan Ishlash</div>
+                    <div class="card-text">Farg'ona ustalari naqshlarni yoddan bilganlar. Har bir asar original bo'lib, takrorlanmas edi — bu san'atkorlik mahoratining eng oliy ko'rinishi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">👨‍🎨</div>
+                <h2 class="section-title">Mashhur Ustalar</h2>
+            </div>
+            <p>Farg'ona kandakorlik maktabi ko'plab yirik ustalar va mohir hunarmandlarni yetishtirib chiqargan:</p>
+            <div class="masters-grid">
+                <div class="master-card">
+                    <div class="master-avatar">OM</div>
+                    <div class="master-name">Otaulla Muhammadrajab</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">MX</div>
+                    <div class="master-name">Mulla Xoliq</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">MK</div>
+                    <div class="master-name">Usta Musavvir Kashg'ariy</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">FX</div>
+                    <div class="master-name">Foriq Xoliqov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">SO</div>
+                    <div class="master-name">Sobir</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">HB</div>
+                    <div class="master-name">Hasanboy</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">QF</div>
+                    <div class="master-name">Qulomjon Foriqov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">MA</div>
+                    <div class="master-name">Mashrab</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">YS</div>
+                    <div class="master-name">Yo'ldosh Sobirov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">FO</div>
+                    <div class="master-name">Fozil Otaullayev</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">LF</div>
+                    <div class="master-name">Lutfulla Fozilov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">OY</div>
+                    <div class="master-name">Oyshaxon</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">YU</div>
+                    <div class="master-name">Yusufjon</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">ON</div>
+                    <div class="master-name">Oynisa Bibi</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">SB</div>
+                    <div class="master-name">Sobira Bibi</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">SH</div>
+                    <div class="master-name">Sharofatxon</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 O'zbek Kandakorlik San'ati.</p>
-        <p>Celebrating the functional artistry of Fergana's copper masters.</p>
+        <p>&copy; 2025 <span>O'zbek Kandakorlik San'ati</span>. Farg'ona maktabi an'analari.</p>
     </footer>
 </body>
 </html>

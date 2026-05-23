@@ -80,10 +80,10 @@ def decode_token(token: str) -> TokenData:
         user_id: int = payload.get("user_id")
         username: str = payload.get("username")
         role: str = payload.get("role")
-        
-        if user_id is None or username is None:
+
+        if user_id is None or username is None or role is None:
             raise credentials_exception
-        
+
         token_data = TokenData(
             user_id=user_id,
             username=username,

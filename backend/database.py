@@ -3,23 +3,29 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import settings
 
-# Create engine with connection pooling configuration
-# SQLite doesn't use pool_size, so we check the database type
-if settings.DATABASE_URL.startswith("sqlite"):
-    # SQLite doesn't support connection pooling parameters
+def _resolve_db_url(url: str) -> str:
+    # Railway (and older Heroku) provide postgres:// — SQLAlchemy needs postgresql+psycopg2://
+    if url.startswith("postgres://"):
+        return url.replace("postgres://", "postgresql+psycopg2://", 1)
+    if url.startswith("postgresql://") and "+psycopg2" not in url:
+        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    return url
+
+_db_url = _resolve_db_url(settings.DATABASE_URL)
+
+if _db_url.startswith("sqlite"):
     engine = create_engine(
-        settings.DATABASE_URL,
-        echo=False,  # Set to True for debugging
+        _db_url,
+        echo=False,
         connect_args={"check_same_thread": False},
     )
 else:
-    # PostgreSQL with connection pooling
     engine = create_engine(
-        settings.DATABASE_URL,
+        _db_url,
         echo=False,
         pool_size=10,
         max_overflow=20,
-        pool_pre_ping=True,  # Test connections before using
+        pool_pre_ping=True,
     )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

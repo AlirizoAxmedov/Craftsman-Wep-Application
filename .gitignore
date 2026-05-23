@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# Virtual environments
+backend/venv/
+venv/
+.venv/
+
+# Environment / secrets
+.env
+.env.local
+backend/.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Large media (serve from cloud storage in production)
+Videos/
+
+# Office documents (large, not needed for deployment)
+*.docx
+*.doc
+*.xlsx
+*.pptx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/

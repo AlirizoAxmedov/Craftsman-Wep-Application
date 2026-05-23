@@ -1,68 +1,474 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buxoro Maktabi - Uzbek Kandakorlik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Buxoro Kandakorlik Maktabi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #F9F9FA;
-            --surface: #FFFFFF;
-            --text: #1A1B1E;
-            --muted: #6B6B6B;
-            --accent: #B87333;
-            --divider: rgba(184,115,51,0.12);
-            --radius: 10px;
+            --copper: #B87333;
+            --copper-dark: #8B5422;
+            --copper-light: #D4956A;
+            --gold: #C9A84C;
+            --gold-light: #E8C96A;
+            --cream: #FDF8F0;
+            --cream-dark: #F5ECD8;
+            --dark: #1C1208;
+            --dark-mid: #3D2B0E;
+            --text: #2C1A06;
+            --text-muted: #7A5C3A;
+            --shadow: rgba(184,115,51,0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial; line-height:1.65; color:var(--text); background-color:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-        body::before { content: ""; position: fixed; inset: 0; background-image: url('../Patterns/2927c9cf-4590-4957-a2a1-8161a5f08b86.png'); background-repeat: repeat; background-size: 600px; opacity: 0.04; pointer-events: none; z-index: -1; }
-        header { background: transparent; color: var(--text); padding: 1rem 0; box-shadow: none; border-bottom: 1px solid var(--divider); backdrop-filter: blur(4px); }
-        nav { max-width: 1200px; margin: 0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; }
-        .logo { font-family: 'Playfair Display', Georgia, serif; font-size:1.6rem; font-weight:700; color:var(--text); }
-        nav a { color: var(--muted); text-decoration:none; padding:0.4rem 0.75rem; transition: color 0.18s ease, transform 0.18s ease; font-weight:600; border-radius:6px; }
-        nav a:hover { color: var(--accent); transform: translateY(-2px); }
-        .container { max-width:1200px; margin:0 auto; padding:2rem; }
-        h2 { font-family:'Playfair Display', Georgia, serif; font-weight:700; font-size:2.25rem; color:var(--text); border-bottom:2px solid rgba(0,0,0,0.04); display:inline-block; margin-bottom:1rem; padding-bottom:0.4rem; }
-        h3 { font-family:'Playfair Display', Georgia, serif; font-size:1.25rem; color:var(--text); margin-top:1.75rem; margin-bottom:0.75rem; font-weight:600; }
-        ul, ol { margin-left:2rem; margin-bottom:1rem; color:var(--muted); }
-        p { margin-bottom:1rem; font-size:1.05rem; color:var(--muted); }
-        footer { background: transparent; color: var(--muted); text-align:center; padding:3rem 1rem; margin-top:4rem; border-top:1px solid var(--divider); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(184,115,51,0.06) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253,248,240,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,115,51,0.2);
+            padding: 1rem 2rem;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--copper-dark);
+            letter-spacing: 0.5px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--copper);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border: 1.5px solid var(--copper);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .back-btn:hover {
+            background: var(--copper);
+            color: #fff;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.6) saturate(0.9);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(28,18,8,0.3) 0%, rgba(28,18,8,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201,168,76,0.85);
+            color: var(--dark);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #fff;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            margin-bottom: 0.75rem;
+        }
+        .hero-sub {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* INTRO BOX */
+        .intro-box {
+            background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.06));
+            border: 1px solid rgba(184,115,51,0.2);
+            border-left: 4px solid var(--copper);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 3rem;
+            font-size: 1.08rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* SECTION */
+        .section {
+            margin-bottom: 3.5rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--copper), var(--gold));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--copper-dark);
+            font-weight: 700;
+        }
+        .section p {
+            color: var(--text-muted);
+            font-size: 1.03rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* GRID CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid rgba(184,115,51,0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+        .card-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--copper-dark);
+            margin-bottom: 0.5rem;
+        }
+        .card-text { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* MASTERS */
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .master-card {
+            background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.05));
+            border: 1px solid rgba(184,115,51,0.2);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .master-card:hover {
+            background: linear-gradient(135deg, rgba(184,115,51,0.15), rgba(201,168,76,0.1));
+            transform: translateY(-2px);
+        }
+        .master-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--copper), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .master-name {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.92rem;
+            line-height: 1.3;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.4rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--copper), transparent);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.4rem;
+            width: 10px;
+            height: 10px;
+            background: var(--copper);
+            border-radius: 50%;
+            border: 2px solid var(--cream);
+            box-shadow: 0 0 0 2px var(--copper);
+        }
+        .timeline-year {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-text {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+        }
+
+        /* DIVIDER */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(184,115,51,0.3), transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.92rem;
+        }
+        footer span { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .hero { height: 300px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .masters-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .content { padding: 2rem 1.25rem 4rem; }
+            .intro-box { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="header-inner">
             <div class="logo">⚒ Kandakorlik</div>
-            <a href="../Craftsman2.html">← Back to Main</a>
-        </nav>
+            <a href="../Craftsman2.html#schools" class="back-btn">← Maktablar</a>
+        </div>
     </header>
 
-    <div class="container">
-        <h2>Buxoro Maktabi (Bukhara School)</h2>
-        
-        <h3>History</h3>
-        <p>A center of Islamic culture and trade. In the mid-19th century, there were nearly 400 coppersmiths here, making Bukhara one of the most important centers of copper engraving in Central Asia.</p>
-        
-        <h3>Distinctive Style</h3>
-        <ul>
-            <li>Elegant and simple designs compared to other schools.</li>
-            <li>Famous for the "Chekma" technique (dotted background), which creates a distinctive textured appearance on the copper surface.</li>
-            <li>Patterns often mimic architectural motifs like mihrabs and tiles from Bukhara's famous monuments.</li>
-            <li>Introduced "Minoqoriy" (enamel painting on copper), adding vibrant colors to their designs.</li>
-        </ul>
-        
-        <h3>Characteristics</h3>
-        <p>The Bukhara school is known for its refined elegance and precise execution. Master artisans from Bukhara developed techniques that emphasized balance and symmetry, often incorporating floral patterns (Islimiy) with geometric precision. The use of the dotted background technique not only served an aesthetic purpose but also allowed craftsmen to create depth and dimension on flat copper surfaces.</p>
-        
-        <h3>Legacy</h3>
-        <p>The Bukhara school's influence extended throughout Central Asia and beyond. Their techniques were studied and adapted by craftsmen in other regions, making Bukhara masters highly sought after for training apprentices.</p>
+    <div class="hero">
+        <img src="../Cities/Bukhara school.jpg" alt="Buxoro shahri">
+        <div class="hero-overlay">
+            <span class="hero-badge">Kandakorlik Maktabi</span>
+            <h1>Buxoro Maktabi</h1>
+            <p class="hero-sub">O'rta Osiyoning qadimiy madaniyat markazi — islom san'atining durdonasi</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="intro-box">
+            Buxoro O'rta Osiyoning eng qadimiy va tarixiy shaharlaridan biridir. IV asrdayoq yirik shahar hisoblangan Buxoro, hunarmandlar va olimlar to'plangan yirik markaz bo'lib olamga tanildi. Buxoro o'zining gilamlari, ajoyib mis buyumlari, zarbof to'nlari bilan mashhur edi.
+        </div>
+
+        <!-- TARIX -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏛</div>
+                <h2 class="section-title">Tarix</h2>
+            </div>
+            <p>Buxoro Xuroson, Mavr va Eronning shimoliy rayonlari bilan chegaradosh bo'lgani uchun undagi san'at asarlariga turli ta'sirlar kirib kelgan. Mo'g'ullar istilosi davrida Buxoro ancha zarar ko'rgan bo'lsada, hunarmandchilik to'xtamay rivojlanaverdi. XVIII asrning oxiriga kelib islom madaniyatining markaziga aylanib qoldi.</p>
+            <p>Buxoro qo'shni davlatlar bilan savdo-sotiq bo'yicha juda yaxshi aloqada edi. Yevropa, Rossiya va boshqa davlatlar bilan savdo aloqalarini yaxshi yo'lga qo'yib o'zi ham katta obro'ga ega edi.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">XIX asr o'rtasi</div>
+                    <div class="timeline-text">Buxoroda taxminan 400 ga yaqin misgar va 100 ga yaqin kandakor faoliyat yuritgan. Bu davrda kandakorlik san'ati eng yuqori cho'qqisiga erishdi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">XIX asr oxiri</div>
+                    <div class="timeline-text">Rossiyada fabrika mahsulotlari ko'payishi tufayli hunarmandchilik mahsulotlarini ishlab chiqarish kamayib bordi. Kandakorlik buyumlari inqirozga uchradi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1925 yil</div>
+                    <div class="timeline-text">«Po'lat» nomi bilan hunarmandchilik arteli tuzildi. Kandakorlik an'analari saqlab qolindi va yangi avlodga o'tkazildi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- USLUB -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎨</div>
+                <h2 class="section-title">O'ziga Xos Uslub</h2>
+            </div>
+            <p>Buxoro kandakorlik idishlari sodda hamda sipoligi bilan farq qilgan. Mis buyumlarining zamini kesma uslub bilan bezatilib, sirti qalay bilan qoplangan. Buxoro ustalarining ishlari nafosati, go'zalligi va uyg'unligi bilan ajralib turgan.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🔨</div>
+                    <div class="card-title">Chekma Texnikasi</div>
+                    <div class="card-text">Mis sirtiga maxsus qalam bilan naqsh tushirish usuli. Har xil katta-kichik chuqurchalar zarb berib hosil qilingan, bu sirtga o'ziga xos to'qimali ko'rinish bergan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <div class="card-title">Minoqoriy</div>
+                    <div class="card-text">Mis yuzasiga emale bo'yoq qo'llash usuli. Bu texnika naqshlarga rang va hayot bag'ishlagan, buyumlarga alohida nafosatlilik bergan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📐</div>
+                    <div class="card-title">Katak Bezak</div>
+                    <div class="card-text">Geometrik shakllardagi katak naqshlar Buxoro maktabiga xos bo'lib, me'morchilik va amaliy san'atning uyg'unligini namoyon etgan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <div class="card-title">Islimiy Naqshlar</div>
+                    <div class="card-text">O'simliksimon naqshlar islim an'analariga asoslangan. Buxoro maktabida islimiy naqshlar me'moriy motivlar bilan uyg'unlashtirilgan.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TEXNIKALAR -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚙</div>
+                <h2 class="section-title">Texnikalar va Buyumlar</h2>
+            </div>
+            <p>Buxoroda azaldan kandakorlik buyumlari rangbarang bo'lgan. Boshqa viloyatlarda ko'p uchraydigan xilma-xil mis idishlar, turli xil ro'zg'or buyumlari, marosimlarda ishlatiladigan mis idishlar keng tarqalgan edi.</p>
+            <p>Chekma hamda katak bilan texnik usullarni ishlash juda keng qo'llanildi. Zaminga ishlov berib, sirti qalay bilan qoplangan hollarda zaminga chekma gullar o'yilgan.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🫖</div>
+                    <div class="card-title">Mis idishlar</div>
+                    <div class="card-text">Oftobacha, lagan, ko'za, choydish — har biri alohida naqsh va bezak bilan ishlangan. Buxoro idishlari o'zining nafisligi bilan mashhur.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-title">Marosim buyumlari</div>
+                    <div class="card-text">To'y va bayram marosimlarida ishlatiladigan mis idishlar alohida e'tibor bilan bezatilgan. Ularda eng murakkab naqshlar qo'llangan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-title">Metall material</div>
+                    <div class="card-text">Rossiyadan mis plitalar olib kelinar edi. Mis «sebocha»lar yoki brinji ishlatilardi. 1 m×1 m kattalikdagi, 2,25 sm qalinlikdagi, 8 pudlik plitalar.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- USTALAR -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">👨‍🎨</div>
+                <h2 class="section-title">Mashhur Ustalar</h2>
+            </div>
+            <p>Buxoro kandakorlik maktabi ko'plab yirik ustalarni yetishtirib chiqargan. Bu ustalar o'z san'atlari bilan nafaqat Buxoroda, balki butun O'rta Osiyoda dong taratganlar.</p>
+            <div class="masters-grid">
+                <div class="master-card">
+                    <div class="master-avatar">BU</div>
+                    <div class="master-name">Buxoro Misgarlar</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">PO</div>
+                    <div class="master-name">«Po'lat» Arteli Ustalari</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">KA</div>
+                    <div class="master-name">Kandakorlar Mahallasi</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">ZA</div>
+                    <div class="master-name">Zargarlar va Misgarlar</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 O'zbek Kandakorlik San'ati.</p>
-        <p>Preserving the traditions of Bukhara's copper engraving masters.</p>
+        <p>&copy; 2025 <span>O'zbek Kandakorlik San'ati</span>. Buxoro maktabi an'analari.</p>
     </footer>
 </body>
 </html>

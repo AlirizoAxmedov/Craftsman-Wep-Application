@@ -1,69 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xorazm Maktabi - Uzbek Kandakorlik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Xorazm Kandakorlik Maktabi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --bg:#F9F9FA; --surface:#FFFFFF; --text:#1A1B1E; --muted:#6B6B6B; --accent:#B87333; --divider:rgba(184,115,51,0.12); --radius:10px; }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial; line-height:1.65; color:var(--text); background-color:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-        body::before { content:""; position:fixed; inset:0; background-image:url('../Patterns/2927c9cf-4590-4957-a2a1-8161a5f08b86.png'); background-repeat:repeat; background-size:600px; opacity:0.04; pointer-events:none; z-index:-1; }
-        header { background:transparent; color:var(--text); padding:1rem 0; border-bottom:1px solid var(--divider); backdrop-filter:blur(4px); }
-        nav { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem; }
-        .logo { font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; font-weight:700; color:var(--text); }
-        nav a { color:var(--muted); text-decoration:none; padding:0.4rem 0.75rem; transition:color 0.18s ease, transform 0.18s ease; font-weight:600; border-radius:6px; }
-        nav a:hover { color:var(--accent); transform:translateY(-2px); }
-        .container { max-width:1200px; margin:0 auto; padding:2rem; }
-        h2 { font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:2.25rem; color:var(--text); border-bottom:2px solid rgba(0,0,0,0.04); display:inline-block; margin-bottom:1rem; padding-bottom:0.4rem; }
-        h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.25rem; color:var(--text); margin-top:1.75rem; margin-bottom:0.75rem; font-weight:600; }
-        ul, ol { margin-left:2rem; margin-bottom:1rem; color:var(--muted); }
-        p { margin-bottom:1rem; font-size:1.05rem; color:var(--muted); }
-        footer { background:transparent; color:var(--muted); text-align:center; padding:3rem 1rem; margin-top:4rem; border-top:1px solid var(--divider); }
+        :root {
+            --copper: #B87333;
+            --copper-dark: #8B5422;
+            --gold: #C9A84C;
+            --cream: #FDF8F0;
+            --dark: #1C1208;
+            --text: #2C1A06;
+            --text-muted: #7A5C3A;
+            --shadow: rgba(184,115,51,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(184,115,51,0.06) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+        header { position: sticky; top: 0; z-index: 100; background: rgba(253,248,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(184,115,51,0.2); padding: 1rem 2rem; }
+        .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--copper-dark); }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--copper); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.5rem 1rem; border: 1.5px solid var(--copper); border-radius: 6px; transition: all 0.2s ease; }
+        .back-btn:hover { background: var(--copper); color: #fff; }
+        .hero { position: relative; height: 420px; overflow: hidden; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.6) saturate(0.9); }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,18,8,0.3) 0%, rgba(28,18,8,0.7) 100%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 3rem 2rem; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(201,168,76,0.85); color: var(--dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; line-height: 1.2; text-shadow: 0 2px 20px rgba(0,0,0,0.5); margin-bottom: 0.75rem; }
+        .hero-sub { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 600px; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; position: relative; z-index: 1; }
+        .intro-box { background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.06)); border: 1px solid rgba(184,115,51,0.2); border-left: 4px solid var(--copper); border-radius: 12px; padding: 2rem 2.5rem; margin-bottom: 3rem; font-size: 1.08rem; color: var(--text-muted); line-height: 1.8; }
+        .section { margin-bottom: 3.5rem; }
+        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .section-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--copper), var(--gold)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 12px var(--shadow); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--copper-dark); font-weight: 700; }
+        .section p { color: var(--text-muted); font-size: 1.03rem; margin-bottom: 1rem; line-height: 1.8; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+        .card { background: #fff; border: 1px solid rgba(184,115,51,0.15); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 12px var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow); }
+        .card-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--copper-dark); margin-bottom: 0.5rem; }
+        .card-text { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; }
+        .masters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .master-card { background: linear-gradient(135deg, rgba(184,115,51,0.08), rgba(201,168,76,0.05)); border: 1px solid rgba(184,115,51,0.2); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; transition: background 0.2s, transform 0.2s; }
+        .master-card:hover { background: linear-gradient(135deg, rgba(184,115,51,0.15), rgba(201,168,76,0.1)); transform: translateY(-2px); }
+        .master-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, var(--copper), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; text-align: center; }
+        .master-name { font-weight: 600; color: var(--text); font-size: 0.92rem; line-height: 1.3; }
+        .timeline { position: relative; padding-left: 2rem; margin-top: 1.5rem; }
+        .timeline::before { content: ''; position: absolute; left: 0.4rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--copper), transparent); }
+        .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 1rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -1.65rem; top: 0.4rem; width: 10px; height: 10px; background: var(--copper); border-radius: 50%; border: 2px solid var(--cream); box-shadow: 0 0 0 2px var(--copper); }
+        .timeline-year { font-size: 0.82rem; font-weight: 700; color: var(--copper); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+        .timeline-text { font-size: 0.98rem; color: var(--text-muted); }
+        .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(184,115,51,0.3), transparent); margin: 2.5rem 0; }
+        footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 2.5rem; font-size: 0.92rem; }
+        footer span { color: var(--gold); }
+        @media (max-width: 768px) { .hero { height: 300px; } .cards-grid { grid-template-columns: 1fr; } .masters-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } .content { padding: 2rem 1.25rem 4rem; } }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="header-inner">
             <div class="logo">⚒ Kandakorlik</div>
-            <a href="../Craftsman2.html">← Back to Main</a>
-        </nav>
+            <a href="../Craftsman2.html#schools" class="back-btn">← Maktablar</a>
+        </div>
     </header>
 
-    <div class="container">
-        <h2>Xorazm Maktabi (Khwarezm School)</h2>
-        
-        <h3>History</h3>
-        <p>The Khorezm region, centered around the ancient city of Khiva, has been a crossroads of civilizations for centuries. The copper engraving tradition here dates back to medieval times, flourishing particularly during the Khanate period. The region's access to copper resources from the Pamir mountains contributed to its development as a metalworking center.</p>
-        
-        <h3>Distinctive Style</h3>
-        <ul>
-            <li>Ornate designs heavily influenced by Persian artistic traditions</li>
-            <li>Use of fine wire inlay techniques creating delicate linear patterns</li>
-            <li>Characteristic "Kashkari" pattern (chain-like interlocking designs)</li>
-            <li>Integration of verse inscriptions in elegant calligraphy</li>
-            <li>Sophisticated color harmony through strategic patination</li>
-        </ul>
-        
-        <h3>Characteristics</h3>
-        <p>The Khorezm school is celebrated for its ornamental elegance and precision craftsmanship. Master artisans combined copper engraving with inlay techniques, often using silver and gold wire to create stunning visual effects. The designs frequently incorporated Persian poetry and Islamic calligraphy, making each piece both a technical and literary masterpiece. The Khorezm style emphasizes refinement and luxury.</p>
-        
-        <h3>Notable Techniques</h3>
-        <ul>
-            <li>Fine wire inlay work with silver and gold</li>
-            <li>Precision calligraphic engraving</li>
-            <li>Advanced patination creating multi-colored effects on single copper surface</li>
-            <li>Integration of verse inscriptions as decorative elements</li>
-        </ul>
-        
-        <h3>Legacy</h3>
-        <p>Khorezm masters were highly sought after by Persian and Mughal courts. Their influence extended into India and modern-day Turkmenistan. The school's emphasis on combining functional metalwork with literary and artistic excellence established new standards for Islamic decorative arts.</p>
+    <div class="hero">
+        <img src="../Cities/Xorazm.jpg" alt="Xorazm">
+        <div class="hero-overlay">
+            <span class="hero-badge">Kandakorlik Maktabi</span>
+            <h1>Xorazm Maktabi</h1>
+            <p class="hero-sub">O'rta Osiyoning eng qadimiy yuksak madaniyatga ega bo'lgan o'lkasi</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="intro-box">
+            Xorazm O'rta Osiyoda eng qadimiy yuksak madaniyatga ega bo'lgan voha hisoblangan. XIX asr oxiri — XX asr boshlarida Xorazm kandakorligining buyumlari shakli, naqshi hamda nomlanishi jihatidan o'ziga xosdir. Xorazm san'ati oddiy bo'lsada, ta'sirchanligi bilan kishini hayratga soladi.
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏛</div>
+                <h2 class="section-title">Tarix</h2>
+            </div>
+            <p>Mo'g'ullar istilosi madaniyatni rivojlanishiga putur yetkazdi, hunarmandchilik inqirozga uchradi. Xiva xonligi tiklangandan keyingina hunarmandchilik rivojlandi. Xorazmning XIX—XX asr boshlarida yaratgan xalq amaliy san'ati namunalari boshqa viloyat mahsulotlaridan farq qiladi.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">XIX asr oxiri</div>
+                    <div class="timeline-text">Xorazm kandakorlik buyumlari shakli, naqshi va nomlanishi jihatidan o'ziga xos maktab sifatida shakllanadi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">XX asr boshlari</div>
+                    <div class="timeline-text">Xorazm kandakorlari naqsh zaminini qora yoki qizil lok bilan bo'yashni boshlaydilar — bu texnika maktabning asosiy belgisiga aylanadi.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1967 yil</div>
+                    <div class="timeline-text">Xivada badiiy ishlab chiqarish maktabi tashkil etildi. An'anaviy texnikalar yangi avlodga o'tkazildi va san'at rivojlanishi yangi bosqichga ko'tarildi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎨</div>
+                <h2 class="section-title">O'ziga Xos Uslub</h2>
+            </div>
+            <p>XX asrning boshlarida Xorazm kandakorlari naqsh zaminini qora yoki qizil lok bilan bo'yaydilar — bu rang kombinatsiyasi Xorazm maktabini boshqalardan keskin ajratib turadi.</p>
+            <p>Xiva kandakorlari chizma usulini faqat pardozlashga qo'llaydilar. Shabakani juda kam qo'llaydilar. Ular medalonlar bilan bezashni mis idishlarning kaftida, ba'zan bo'ynining yuqori qismida qo'llaganlar.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">⬛</div>
+                    <div class="card-title">Qora va Qizil Lok</div>
+                    <div class="card-text">Naqsh zaminini qora yoki qizil lok bilan bo'yash Xorazm maktabining eng muhim belgisi. Bu rang kombinatsiyasi buyumlarga alohida ta'sirchanlik beradi.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <div class="card-title">Aylanma Islimiy</div>
+                    <div class="card-text">Ularda aylanma islimi naqsh ommaviy hisoblanadi. Islimiy, murakkab islimiy, madohiliy, murakkab aylanma islimiy naqshlar keng qo'llanilgan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⭕</div>
+                    <div class="card-title">Medalonlar</div>
+                    <div class="card-text">Medalonlar bilan bezash mis idishlarning kaftida, ba'zan bo'ynining yuqori qismida qo'llanilgan — bu kompozitsion yechim o'ziga xos.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔷</div>
+                    <div class="card-title">Geometrik Katak</div>
+                    <div class="card-text">Kandakorlarning geometrik chetan yoki katak naqshlari o'ziga xos originaldir. Asosiy naqshni qo'llab-quvvatlash funktsiyasini bajaradi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚙</div>
+                <h2 class="section-title">Texnikalar</h2>
+            </div>
+            <p>Kandakor ustalar asosan o'simlik naqshlarini juda ko'p qo'llaydilar. Naqqosh Abdulla Boltayev xalq amaliy san'ati ustalariga naqsh kompozitsiyalar chizib bergan — bu hamkorlik Xorazm maktabini rivojlantirishda muhim rol o'ynagan.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <div class="card-title">O'simlik Naqshlari</div>
+                    <div class="card-text">Asosiy naqsh turi bo'lib, islimiy va uning turli ko'rinishlari dominantlik qiladi. Tabiat motivlari Xorazm san'atida markaziy o'rin egallagan.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✏</div>
+                    <div class="card-title">Chizma Usuli</div>
+                    <div class="card-text">Xiva kandakorlari chizma usulini faqat pardozlash uchun qo'llaydilar — bu texnikada aniq chiziqlar va nozik ishlov muhim ahamiyat kasb etadi.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-title">Lok Bezak</div>
+                    <div class="card-text">Lok — buyumlarni himoya qilish va estetik bezash vositasi. Qora va qizil loklar Xorazm maktabining o'ziga xos rang palitrasini tashkil etadi.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">👨‍🎨</div>
+                <h2 class="section-title">Mashhur Ustalar</h2>
+            </div>
+            <p>Xorazm kandakorlik maktabining yirik vakillari:</p>
+            <div class="masters-grid">
+                <div class="master-card">
+                    <div class="master-avatar">MU</div>
+                    <div class="master-name">Muhammadpano</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">XM</div>
+                    <div class="master-name">Xudoybergan Matchonov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">SO</div>
+                    <div class="master-name">Sobirjon</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">YU</div>
+                    <div class="master-name">Yusuf Xudoyberganov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">MA</div>
+                    <div class="master-name">Matpano Xudoyberganov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">MJ</div>
+                    <div class="master-name">Matyoqub Jonibekov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">HS</div>
+                    <div class="master-name">Hojiniyoz Saidniyozov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">BY</div>
+                    <div class="master-name">Bekjon Yoqubov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">OM</div>
+                    <div class="master-name">Otajon Madrahimov</div>
+                </div>
+                <div class="master-card">
+                    <div class="master-avatar">AB</div>
+                    <div class="master-name">Abdulla Boltayev (Naqqosh)</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 O'zbek Kandakorlik San'ati.</p>
-        <p>Honoring the ornamental traditions of Khwarezm's master artisans.</p>
+        <p>&copy; 2025 <span>O'zbek Kandakorlik San'ati</span>. Xorazm maktabi an'analari.</p>
     </footer>
 </body>
 </html>
