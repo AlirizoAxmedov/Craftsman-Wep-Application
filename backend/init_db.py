@@ -7,7 +7,7 @@ Usage: python init_db.py
 """
 
 from database import SessionLocal, engine
-from models import Base, School, User, UserRole
+from models import Base, School, User, UserRole, Quiz
 from security import hash_password
 import sys
 
@@ -145,6 +145,15 @@ def init_database():
         db.commit()
         print("✓ Demo users initialized")
         
+        # Seed quizzes if none exist
+        if db.query(Quiz).count() == 0:
+            print("\n📝 Seeding sample quizzes...")
+            from populate_quizzes import add_sample_quizzes
+            add_sample_quizzes()
+            print("✓ Sample quizzes seeded")
+        else:
+            print("\n✓ Quizzes already exist, skipping seed")
+
         print("\n" + "="*50)
         print("✓ Database initialization complete!")
         print("="*50)

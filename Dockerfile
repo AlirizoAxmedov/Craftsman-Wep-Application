@@ -16,6 +16,7 @@ COPY Cities/ ./Cities/
 COPY Patterns/ ./Patterns/
 COPY Naqshlar/ ./Naqshlar/
 COPY Schools/ ./Schools/
+COPY Videos/ ./Videos/
 
 WORKDIR /app/backend
 
