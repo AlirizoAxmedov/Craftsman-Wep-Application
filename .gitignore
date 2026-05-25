@@ -19,9 +19,6 @@ backend/.env
 *.sqlite
 *.sqlite3
 
-# Large media (serve from cloud storage in production)
-Videos/
-
 # Office documents (large, not needed for deployment)
 *.docx
 *.doc
