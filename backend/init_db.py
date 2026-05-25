@@ -7,7 +7,7 @@ Usage: python init_db.py
 """
 
 from database import SessionLocal, engine
-from models import Base, School, User, UserRole, Quiz
+from models import Base, School, User, UserRole, Quiz, Question, Answer
 from security import hash_password
 import sys
 
@@ -148,9 +148,178 @@ def init_database():
         # Seed quizzes if none exist
         if db.query(Quiz).count() == 0:
             print("\n📝 Seeding sample quizzes...")
-            from populate_quizzes import add_sample_quizzes
-            add_sample_quizzes()
-            print("✓ Sample quizzes seeded")
+            school = db.query(School).filter(School.slug == "samarkand").first()
+            if school:
+                quizzes_data = [
+                    {
+                        "title": "Kandakorlik asoslari",
+                        "description": "O'zbek mis o'ymakorligi san'atining asosiy tushunchalari",
+                        "questions": [
+                            {
+                                "text": "Kandakorlik nima?",
+                                "answers": [
+                                    ("Misga naqsh o'yish an'anaviy o'zbek san'ati", True),
+                                    ("To'qimachilik turi", False),
+                                    ("Kulolchilik usuli", False),
+                                    ("Naqqoshlik san'ati", False),
+                                ]
+                            },
+                            {
+                                "text": "Kandakorlik uchun asosan qaysi material ishlatiladi?",
+                                "answers": [
+                                    ("Mis", True),
+                                    ("Kumush", False),
+                                    ("Bronza", False),
+                                    ("Temir", False),
+                                ]
+                            },
+                            {
+                                "text": "Qaysi shaharlar kandakorlik markazi hisoblanadi?",
+                                "answers": [
+                                    ("Buxoro va Samarqand", True),
+                                    ("Toshkent va Namangan", False),
+                                    ("Andijon va Qo'qon", False),
+                                    ("Termiz va Qarshi", False),
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "title": "Naqsh turlari va texnikalar",
+                        "description": "Kandakorlikda ishlatiladigan naqsh va texnikalar",
+                        "questions": [
+                            {
+                                "text": "'Chekma' texnikasi nima?",
+                                "answers": [
+                                    ("Nuqtali fon yaratuvchi Buxoro texnikasi", True),
+                                    ("Metal qotishmasi turi", False),
+                                    ("O'ymakorlik asbobi", False),
+                                    ("Buyumni jilolash usuli", False),
+                                ]
+                            },
+                            {
+                                "text": "Samarqand uslubidagi kandakorlik qanday xususiyatga ega?",
+                                "answers": [
+                                    ("Murakkab geometrik naqshlar va soya effektlari", True),
+                                    ("Sodda minimalist dizayn", False),
+                                    ("Yirik harflar", False),
+                                    ("Rangli bo'yoqlar", False),
+                                ]
+                            },
+                            {
+                                "text": "Qaysi maktab yirik o'simlik naqshlari bilan mashhur?",
+                                "answers": [
+                                    ("Farg'ona maktabi", True),
+                                    ("Buxoro maktabi", False),
+                                    ("Toshkent maktabi", False),
+                                    ("Xorazm maktabi", False),
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "title": "Asboblar va jarayonlar",
+                        "description": "Kandakorlikda ishlatiladigan asboblar va ish jarayonlari",
+                        "questions": [
+                            {
+                                "text": "Mazutga yopishtirish jarayoni nima uchun kerak?",
+                                "answers": [
+                                    ("Buyumni mahkam ushlab turish uchun", True),
+                                    ("Buyumni bo'yash uchun", False),
+                                    ("Metalga rang berish uchun", False),
+                                    ("Buyumni tozalash uchun", False),
+                                ]
+                            },
+                            {
+                                "text": "Sayqalash jarayoni qaysi bosqichda amalga oshiriladi?",
+                                "answers": [
+                                    ("Naqsh o'yilgandan keyin", True),
+                                    ("Naqsh o'yilishidan oldin", False),
+                                    ("Mazutga yopishtirishdan oldin", False),
+                                    ("Dizayn chizilganda", False),
+                                ]
+                            },
+                            {
+                                "text": "Kopirovka (eskizni ko'chirish) nima uchun ishlatiladi?",
+                                "answers": [
+                                    ("Naqsh rasmini misga o'tkazish uchun", True),
+                                    ("Metalga rang berish uchun", False),
+                                    ("Buyumni tozalash uchun", False),
+                                    ("Asboblarni keskirlash uchun", False),
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "title": "Maktablar va an'analar",
+                        "description": "O'zbek kandakorlik maktablari va ularning tarixi",
+                        "questions": [
+                            {
+                                "text": "Buxoro kandakorlik maktabi qaysi davr bilan bog'liq?",
+                                "answers": [
+                                    ("XIX asr o'rtalari — hozirgi kun", True),
+                                    ("Faqat XX asr", False),
+                                    ("Qadimgi Rim davri", False),
+                                    ("Sovet davri", False),
+                                ]
+                            },
+                            {
+                                "text": "Xorazm kandakorlik maktabining o'ziga xos xususiyati nima?",
+                                "answers": [
+                                    ("Nozik sim inlay va forsiy ta'sir", True),
+                                    ("Zamonaviy minimal dizayn", False),
+                                    ("Faqat geometrik shakllar", False),
+                                    ("Bo'yoqli bezaklar", False),
+                                ]
+                            },
+                            {
+                                "text": "Kandakorlik qaysi turdagi san'at hisoblanadi?",
+                                "answers": [
+                                    ("Hunarmandchilik va bezak san'ati", True),
+                                    ("Rasm chizish san'ati", False),
+                                    ("Me'morchilik", False),
+                                    ("Musiqa san'ati", False),
+                                ]
+                            },
+                        ]
+                    },
+                ]
+
+                for qd in quizzes_data:
+                    quiz = Quiz(
+                        school_id=school.id,
+                        title=qd["title"],
+                        description=qd["description"],
+                        time_limit_minutes=20,
+                        passing_score=60.0,
+                        total_questions=len(qd["questions"]),
+                        is_published=True,
+                    )
+                    db.add(quiz)
+                    db.flush()
+                    for i, q in enumerate(qd["questions"], 1):
+                        question = Question(
+                            quiz_id=quiz.id,
+                            question_text=q["text"],
+                            question_type="multiple_choice",
+                            order=i,
+                            points=1.0,
+                        )
+                        db.add(question)
+                        db.flush()
+                        for j, (ans_text, is_correct) in enumerate(q["answers"], 1):
+                            db.add(Answer(
+                                question_id=question.id,
+                                answer_text=ans_text,
+                                is_correct=is_correct,
+                                order=j,
+                            ))
+                    print(f"  • Created quiz: {qd['title']}")
+
+                db.commit()
+                print(f"✓ {len(quizzes_data)} quizzes seeded")
+            else:
+                print("  ⚠ Samarkand school not found, skipping quiz seed")
         else:
             print("\n✓ Quizzes already exist, skipping seed")
 
