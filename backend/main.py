@@ -81,16 +81,61 @@ async def health_check():
     return {"status": "healthy", "app": settings.APP_NAME, "version": settings.VERSION}
 
 
-@app.get("/")
+# Public site origin, used for canonical URLs in robots.txt / sitemap.xml.
+SITE_URL = (settings.FRONTEND_URL or "https://kandakorlik.art").rstrip("/")
+
+# Individually crawlable pages. The main page is a single document, so the
+# school pages are the only other real URLs worth handing to a search engine.
+SCHOOL_PAGES = ["buxoro", "samarqand", "toshkent", "xorazm", "fargona", "qarshi"]
+
+
+# HEAD is allowed alongside GET: crawlers and link checkers probe with HEAD,
+# and a GET-only route answers them with 405.
+@app.api_route("/", methods=["GET", "HEAD"])
 async def serve_frontend():
     html_path = os.path.join(BASE_DIR, "Craftsman2.html")
     return FileResponse(html_path, media_type="text/html")
 
 
-@app.get("/Craftsman2.html")
+@app.api_route("/Craftsman2.html", methods=["GET", "HEAD"])
 async def serve_frontend_alias():
     html_path = os.path.join(BASE_DIR, "Craftsman2.html")
     return FileResponse(html_path, media_type="text/html")
+
+
+@app.get("/robots.txt", include_in_schema=False)
+async def robots_txt():
+    body = "\n".join([
+        "User-agent: *",
+        "Allow: /",
+        # API responses and docs are not useful search results.
+        "Disallow: /api/",
+        "Disallow: /docs",
+        "Disallow: /redoc",
+        "Disallow: /openapi.json",
+        "",
+        f"Sitemap: {SITE_URL}/sitemap.xml",
+        "",
+    ])
+    return Response(content=body, media_type="text/plain")
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def sitemap_xml():
+    urls = [(f"{SITE_URL}/", "1.0")]
+    urls += [(f"{SITE_URL}/Schools/{s}.html", "0.8") for s in SCHOOL_PAGES]
+
+    entries = "".join(
+        f"<url><loc>{loc}</loc><changefreq>weekly</changefreq><priority>{pri}</priority></url>"
+        for loc, pri in urls
+    )
+    body = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        f"{entries}"
+        "</urlset>"
+    )
+    return Response(content=body, media_type="application/xml")
 
 
 @app.get("/api-config.js")
