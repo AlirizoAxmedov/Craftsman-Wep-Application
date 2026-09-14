@@ -228,19 +228,23 @@ c:\Users\aliri\Desktop\Craftsmanship\
 ```
 Admin:
   Username: admin
-  Password: AdminPass123
+  Password: from $ADMIN_PASSWORD
   Email: admin@kandakorlik.local
 
 Teacher:
   Username: teacher
-  Password: TeacherPass123
+  Password: from $TEACHER_PASSWORD
   Email: teacher@kandakorlik.local
 
 Student:
   Username: student
-  Password: StudentPass123
+  Password: from $STUDENT_PASSWORD
   Email: student@kandakorlik.local
 ```
+
+Passwords are never committed. An unset variable means the account is created
+with a random password, printed once by `init_db.py`; changing a variable
+rotates that account's password on the next run.
 
 ---
 
@@ -287,7 +291,7 @@ curl http://localhost:8000/health
 ```bash
 curl -X POST http://localhost:8000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"student","password":"StudentPass123"}'
+  -d '{"username":"student","password":"$STUDENT_PASSWORD"}'
 ```
 
 ### 3. Docker Deployment (Optional)

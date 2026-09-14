@@ -517,7 +517,7 @@ fetch('/api/auth/me', {
 ```bash
 TOKEN=$(curl -s -X POST http://localhost:8000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"student","password":"StudentPass123"}' | jq -r '.access_token')
+  -d '{"username":"student","password":"$STUDENT_PASSWORD"}' | jq -r '.access_token')
 
 # Use in subsequent commands
 curl http://localhost:8000/api/auth/me \

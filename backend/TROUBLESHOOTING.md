@@ -166,7 +166,7 @@ curl -X POST http://localhost:8000/api/auth/refresh \
 # Or login again
 curl -X POST http://localhost:8000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"student","password":"StudentPass123"}'
+  -d '{"username":"student","password":"$STUDENT_PASSWORD"}'
 ```
 
 2. **Token Format Wrong**:
@@ -189,7 +189,7 @@ curl http://localhost:8000/api/auth/me \
 # Start fresh - login again
 curl -X POST http://localhost:8000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"student","password":"StudentPass123"}' | jq .access_token
+  -d '{"username":"student","password":"$STUDENT_PASSWORD"}' | jq .access_token
 
 # Use new token
 TOKEN="new_token_here"
@@ -209,7 +209,7 @@ psql -U kandakorlik_user -d kandakorlik_db -c "SELECT username FROM users;"
 
 # Try demo credentials:
 # Username: student
-# Password: StudentPass123
+# Password: the value of $STUDENT_PASSWORD
 
 # If users don't exist, regenerate
 python init_db.py

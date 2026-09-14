@@ -301,12 +301,15 @@ curl -X POST http://localhost:8000/api/translations/batch/import \
 
 ## 🌍 Internationalization (i18n)
 
-### Demo Users
-```
-Admin:    admin / AdminPass123
-Teacher:  teacher / TeacherPass123
-Student:  student / StudentPass123
-```
+### Built-in Users
+
+`init_db.py` seeds three accounts — `admin`, `teacher`, `student`. Their
+passwords come from the `ADMIN_PASSWORD`, `TEACHER_PASSWORD` and
+`STUDENT_PASSWORD` environment variables and are never stored in this repo.
+
+- Leave a variable unset and the account is created with a random password,
+  printed once in the init output.
+- Change a variable and that account's password is rotated on the next run.
 
 ### Supported Languages
 - English (en)

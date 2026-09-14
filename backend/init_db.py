@@ -8,9 +8,10 @@ Usage: python init_db.py
 
 from database import SessionLocal, engine
 from models import Base, School, User, UserRole, Quiz, Question, Answer
-from security import hash_password
+from security import hash_password, verify_password
 import json
 import os
+import secrets
 import sys
 
 # Placeholder quizzes seeded by earlier versions of this script, before the real
@@ -95,68 +96,48 @@ def init_database():
         db.commit()
         print("✓ Schools data initialized")
         
-        # Create demo admin user
-        print("\n👤 Creating demo admin user...")
-        admin = db.query(User).filter(User.username == "admin").first()
-        
-        if not admin:
-            admin = User(
-                username="admin",
-                email="admin@kandakorlik.local",
-                hashed_password=hash_password("AdminPass123"),
-                full_name="Administrator",
-                role=UserRole.ADMIN,
-                is_active=True
-            )
-            db.add(admin)
-            print("  • Admin user created")
-            print("     Username: admin")
-            print("     Password: AdminPass123")
-        else:
-            print("  • Admin user already exists")
-        
-        # Create demo teacher user
-        print("\n👤 Creating demo teacher user...")
-        teacher = db.query(User).filter(User.username == "teacher").first()
-        
-        if not teacher:
-            teacher = User(
-                username="teacher",
-                email="teacher@kandakorlik.local",
-                hashed_password=hash_password("TeacherPass123"),
-                full_name="Instructor Ali",
-                role=UserRole.TEACHER,
-                is_active=True
-            )
-            db.add(teacher)
-            print("  • Teacher user created")
-            print("     Username: teacher")
-            print("     Password: TeacherPass123")
-        else:
-            print("  • Teacher user already exists")
-        
-        # Create demo student user
-        print("\n👤 Creating demo student user...")
-        student = db.query(User).filter(User.username == "student").first()
-        
-        if not student:
-            student = User(
-                username="student",
-                email="student@kandakorlik.local",
-                hashed_password=hash_password("StudentPass123"),
-                full_name="Zainab Ahmed",
-                role=UserRole.STUDENT,
-                is_active=True
-            )
-            db.add(student)
-            print("  • Student user created")
-            print("     Username: student")
-            print("     Password: StudentPass123")
-        else:
-            print("  • Student user already exists")
-        
+        # Seed the built-in accounts. Passwords come from the environment —
+        # never from this file, which is public. Setting the variable to a new
+        # value rotates that account's password on the next deploy.
+        print("\n👤 Seeding built-in accounts...")
+        seeded_accounts = [
+            ("ADMIN_PASSWORD", "admin", "admin@kandakorlik.local", "Administrator", UserRole.ADMIN),
+            ("TEACHER_PASSWORD", "teacher", "teacher@kandakorlik.local", "Instructor Ali", UserRole.TEACHER),
+            ("STUDENT_PASSWORD", "student", "student@kandakorlik.local", "Zainab Ahmed", UserRole.STUDENT),
+        ]
+
+        for env_var, username, email, full_name, role in seeded_accounts:
+            desired = os.environ.get(env_var)
+            user = db.query(User).filter(User.username == username).first()
+
+            if not user:
+                # No password supplied for a brand-new account: generate one
+                # rather than shipping a known default. It is printed once here
+                # and recoverable only from this deploy log.
+                generated = desired is None
+                password = desired or secrets.token_urlsafe(18)
+                db.add(User(
+                    username=username,
+                    email=email,
+                    hashed_password=hash_password(password),
+                    full_name=full_name,
+                    role=role,
+                    is_active=True,
+                ))
+                print(f"  • Created {username} ({role.value})")
+                if generated:
+                    print(f"     Generated password: {password}")
+                    print(f"     Set {env_var} to choose your own.")
+                else:
+                    print(f"     Password taken from {env_var}")
+            elif desired and not verify_password(desired, user.hashed_password):
+                user.hashed_password = hash_password(desired)
+                print(f"  • Rotated {username} password from {env_var}")
+            else:
+                print(f"  • {username} already exists")
+
         db.commit()
-        print("✓ Demo users initialized")
+        print("✓ Built-in accounts initialized")
         
         # Seed the real quizzes from quiz_seed_data.json (generated by
         # extract_quizzes.py from 'ТЕСТЫ по Чеканке.docx').
