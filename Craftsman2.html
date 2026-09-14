@@ -176,8 +176,8 @@
     }
 
     nav {
-      max-width: 1280px; margin: 0 auto;
-      display: flex; align-items: center; gap: 1rem;
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; gap: 0.75rem;
       padding: 0.75rem 2rem;
     }
 
@@ -190,23 +190,28 @@
     .logo span { font-size: 1.3rem; }
 
     .nav-links {
-      display: flex; list-style: none; gap: 0.25rem;
-      flex-grow: 1; margin-left: 1.5rem;
+      display: flex; list-style: none; gap: 0.15rem;
+      flex-grow: 1; margin-left: 0.75rem;
     }
 
     .nav-btn {
       background: none; border: none;
-      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
       color: var(--muted); cursor: pointer;
-      padding: 0.45rem 0.9rem; border-radius: 8px;
+      padding: 0.45rem 0.6rem; border-radius: 8px;
+      white-space: nowrap;
       transition: all 0.2s;
     }
     .nav-btn:hover { color: var(--copper); background: rgba(184,115,51,0.07); }
     .nav-btn.active { color: var(--copper); background: rgba(184,115,51,0.12); font-weight: 600; }
 
     .nav-auth {
-      display: flex; align-items: center; gap: 0.75rem; margin-left: auto; flex-shrink: 0;
+      display: flex; align-items: center; gap: 0.5rem; margin-left: auto; flex-shrink: 0;
     }
+    /* Spacing lives here rather than on each button's inline margin-left, so the
+       compact breakpoints below can tighten the whole cluster in one place. */
+    #user-area { align-items: center; gap: 0.4rem; }
+    #auth-btns { display: flex; align-items: center; gap: 0.5rem; }
 
     .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.1rem; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; }
     .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--charcoal); }
@@ -220,16 +225,22 @@
     .btn-gold:hover { opacity: 0.9; transform: translateY(-1px); }
 
     .user-chip {
-      display: flex; align-items: center; gap: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
       background: var(--cream-dark); border-radius: 40px;
-      padding: 0.35rem 1rem 0.35rem 0.35rem;
+      padding: 0.3rem 0.7rem 0.3rem 0.3rem;
       border: 1px solid var(--border);
+      min-width: 0;
     }
     .user-avatar {
-      width: 34px; height: 34px; border-radius: 50%;
+      width: 32px; height: 32px; border-radius: 50%;
       background: linear-gradient(135deg, var(--copper), var(--gold));
       display: flex; align-items: center; justify-content: center;
       color: #fff; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+    }
+    /* A long full_name must not be able to push the buttons out of the bar. */
+    .user-chip-text { min-width: 0; }
+    .user-chip-name, .user-chip-role {
+      max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
     .user-chip-name { font-size: 0.875rem; font-weight: 600; color: var(--charcoal); }
     .user-chip-role { font-size: 0.75rem; color: var(--muted); }
@@ -805,6 +816,31 @@
     .mobile-nav-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; padding: 0 0.25rem; }
     .mobile-nav-actions .btn { flex: 1; min-width: 80px; justify-content: center; font-size: 0.82rem; }
 
+    /* ── RESPONSIVE — HEADER TIERS ──
+       The bar holds the logo, up to 8 nav links and the signed-in cluster, so it
+       runs out of room well before the mobile breakpoint. Shed the widest parts
+       in stages rather than letting the row overflow its own border. */
+
+    /* Not enough room for the name/role text next to the avatar. Full width is
+       only available once the viewport reaches the nav's own max-width. */
+    @media (max-width: 1399px) {
+      .user-chip-text { display: none; }
+      .user-chip { padding: 0.3rem; gap: 0; }
+    }
+
+    /* Not enough room for the links either — hand the whole menu to the
+       hamburger, which already carries every link and user action. The cutoff is
+       set by the widest case: an admin, who gets both the extra "Testlar
+       boshqaruvi" link and the extra "Admin" button. */
+    @media (max-width: 1279px) {
+      .nav-links { display: none; }
+      .ham-btn { display: flex; }
+      /* !important is required: updateUI() sets display inline on both of these,
+         and an inline style beats a plain rule here. */
+      #auth-btns { display: none !important; }
+      #user-area { display: none !important; }
+    }
+
     /* ── RESPONSIVE — HALF-SCREEN / TABLET (≤ 1080px) ── */
     @media (max-width: 1080px) {
       nav { padding: 0.75rem 1.25rem; gap: 0.75rem; }
@@ -981,14 +1017,14 @@
       <div id="user-area" style="display:none">
         <div class="user-chip" id="user-chip">
           <div class="user-avatar" id="user-avatar">U</div>
-          <div>
+          <div class="user-chip-text">
             <div class="user-chip-name" id="user-name-display">Foydalanuvchi</div>
             <div class="user-chip-role" id="user-role-display">Talaba</div>
           </div>
         </div>
-        <button class="btn btn-outline btn-sm" onclick="showSection('profile',this)" style="margin-left:0.5rem">Profil</button>
-        <button id="admin-nav-btn" class="btn btn-gold btn-sm" style="display:none;margin-left:0.5rem" onclick="showSection('admin',this)">Admin</button>
-        <button class="btn btn-sm" style="background:#e8ded0;color:var(--charcoal);margin-left:0.5rem" onclick="logout()">Chiqish</button>
+        <button class="btn btn-outline btn-sm" onclick="showSection('profile',this)">Profil</button>
+        <button id="admin-nav-btn" class="btn btn-gold btn-sm" style="display:none" onclick="showSection('admin',this)">Admin</button>
+        <button class="btn btn-sm" style="background:#e8ded0;color:var(--charcoal)" onclick="logout()">Chiqish</button>
       </div>
       <button class="ham-btn" id="ham-btn" onclick="toggleMobileMenu()" aria-label="Menyu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -2179,8 +2215,11 @@
 
       const initials = (curUser.full_name || curUser.username).slice(0,2).toUpperCase();
       document.getElementById('user-avatar').textContent = initials;
-      document.getElementById('user-name-display').textContent = curUser.full_name || curUser.username;
+      const displayName = curUser.full_name || curUser.username;
+      document.getElementById('user-name-display').textContent = displayName;
       document.getElementById('user-role-display').textContent = roleLabel(curUser.role);
+      // Narrow screens hide the chip's text, so keep the name reachable on hover.
+      document.getElementById('user-chip').title = `${displayName} — ${roleLabel(curUser.role)}`;
 
       const isStaff = curUser.role === 'admin' || curUser.role === 'teacher';
       adminBtn.style.display   = curUser.role === 'admin' ? 'inline-flex' : 'none';
