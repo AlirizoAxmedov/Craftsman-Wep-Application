@@ -1,0 +1,2834 @@
+[
+  {
+    "title": "O'qitish Metodikasi",
+    "description": "Misga ishlov berishni o'qitish metodikasi, pedagogik yondashuvlar va dars tashkil etish. 1–25 savollar.",
+    "time_limit_minutes": 30,
+    "passing_score": 60.0,
+    "questions": [
+      {
+        "question_text": "Misga ishlov berishni o'qitishda asosiy maqsad nima?",
+        "question_type": "multiple_choice",
+        "order": 1,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat nazariy bilim berish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Amaliy ko'nikmalarni shakllantirish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat tarixni o'rgatish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat asboblarni ko'rsatish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Quyidagi metodlardan qaysi biri amaliy mashg'ulotlar uchun eng mos?",
+        "question_type": "multiple_choice",
+        "order": 2,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Ma'ruza metodi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Namoyish (demonstratsiya) metodi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Test metodi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Suhbat metodi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda xavfsizlik qoidalari qachon tushuntiriladi?",
+        "question_type": "multiple_choice",
+        "order": 3,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Dars oxirida",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Faqat imtihon oldidan",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Dars boshida",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat kerak bo'lganda",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Talabalarda ijodiy fikrlashni rivojlantirish uchun qaysi metod samarali?",
+        "question_type": "multiple_choice",
+        "order": 4,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Takrorlash metodi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mustaqil ishlar",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Yodlash metodi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Nazorat ishlari",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berish darslarida baholash qanday bo'lishi kerak?",
+        "question_type": "multiple_choice",
+        "order": 5,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat yozma test orqali",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Faqat og'zaki so'rov orqali",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Nazariy va amaliy natijalarni hisobga olib",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat davomadga qarab",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi vosita misga naqsh tushirishda ishlatiladi?",
+        "question_type": "multiple_choice",
+        "order": 6,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Bolg'a va Shtixel (po'lat qalam) (po'lat qalam )",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Qalam",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Chizg'ich",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Marker",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Darsda individual yondashuv nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 7,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Barcha talabalarni bir xil o'qitish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Har bir talabaga alohida yondashish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat kuchli talabalar bilan ishlash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat nazariy dars o'tish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda dastlabki bosqich nima?",
+        "question_type": "multiple_choice",
+        "order": 8,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Naqsh berish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Silliqlash",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Materialni tayyorlash",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Bo'yash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi metod talabalarning faolligini oshiradi?",
+        "question_type": "multiple_choice",
+        "order": 9,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Passiv tinglash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Interaktiv metodlar",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat yozish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat o'qish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda bolg 'aning asosiy vazifasi nima?",
+        "question_type": "multiple_choice",
+        "order": 10,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Materialni bo 'yash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Naqshni bosib chiqarish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Metall yuzasini kesish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Metallni eritish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "“ Shtixel (po'lat qalam) ” (po'lat qalam) asbobi nimaga xizmat qiladi?",
+        "question_type": "multiple_choice",
+        "order": 11,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Metallni qizdirish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Naqsh o'yish va chizish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Metallni kesish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Silliqlash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga naqsh tushirish san'ati qanday ataladi?",
+        "question_type": "multiple_choice",
+        "order": 12,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Kulolchilik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Zargarlik",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Chekanka ( mis kandakorlik )",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "To'qimachilik",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qadimda mis buyumlar asosan qayerda keng rivojlangan?",
+        "question_type": "multiple_choice",
+        "order": 13,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Yevropa shimolida",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Markaziy Osiyoda",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Janubiy Amerikada",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Avstraliyada",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda metallni yumshatish jarayoni qanday atal adi?",
+        "question_type": "multiple_choice",
+        "order": 14,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Sovitish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Qizdirish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Bo'yash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Qoplash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi omil misga ishlov berish sifatiga eng ko'p ta'sir qiladi?",
+        "question_type": "multiple_choice",
+        "order": 15,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rang",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Metallning qalinligi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Dars vaqti",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Auditoriya hajmi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh tushirishdan oldin nima qilinadi?",
+        "question_type": "multiple_choice",
+        "order": 16,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Buyumni bo 'yash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yuzani tayyorlash va o'lchamlarni belgilash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Sovitish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Qadoqlash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi asbob nozik detallarni ishlashda qo'llaniladi?",
+        "question_type": "multiple_choice",
+        "order": 17,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Katta bolg'a",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Shtixel (po'lat qalam )",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Arralash asbobi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Matkap",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis buyumlarni silliqlashning maqsadi nima?",
+        "question_type": "multiple_choice",
+        "order": 18,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rangini o'zgartirish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yuzani tekislash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Uni eritish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Uni kesish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqqoshlik san'atida kompozitsiya nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 19,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rang tanlash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Elementlarni joylashtirish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Metallni kesish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Asboblarni tanlash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qadimgi ustalar bilimni qanday usulda o'rgatgan?",
+        "question_type": "multiple_choice",
+        "order": 20,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat yozma test orqali",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Ustoz-shogird an'anasi orqali",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Onlayn kurslar orqali",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Kitob o'qish orqali",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis buyumlarda ko'p uchraydigan naqsh turi qaysi?",
+        "question_type": "multiple_choice",
+        "order": 21,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Geometrik va islimi naqshlar",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Matnli naqshlar",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Tasodifiy chiziqlar",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Fotosuratlar",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "O'zbekistonning qaysi shah r i misgarlik markazi sifatida mashhur?",
+        "question_type": "multiple_choice",
+        "order": 22,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Toshkent",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Buxoro",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Nukus",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Termiz",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis buyumlarni himoya qilish uchun nima qilinadi?",
+        "question_type": "multiple_choice",
+        "order": 23,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Ularni sindirish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Lak bilan qoplash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Qizdirmaslik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Kesish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Talabalar uchun eng samarali o'qitish shakli qaysi?",
+        "question_type": "multiple_choice",
+        "order": 24,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat nazariya",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Nazariya va amaliyot uyg'unligi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat test",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat mustaqil ish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda asosiy material nima?",
+        "question_type": "multiple_choice",
+        "order": 25,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Temir",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Alyuminiy",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Mis, latun",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Yog'och",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Asboblar va Texnikalar",
+    "description": "Kandakorlik asboblari, naqsh tushirish texnikalari va xavfsizlik qoidalari. 26–50 savollar.",
+    "time_limit_minutes": 30,
+    "passing_score": 60.0,
+    "questions": [
+      {
+        "question_text": "Naqshlarni chizishda qaysi vosita ishlatiladi?",
+        "question_type": "multiple_choice",
+        "order": 1,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Q alam",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Bolg'a",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Pech",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Qaychi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda xavfsizlik uchun nima zarur?",
+        "question_type": "multiple_choice",
+        "order": 2,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qo'lqop va himoya vositalari",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Faqat qalam",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat daftar",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat chizg'ich",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi jarayon buyumga yakuniy ko'rinish beradi?",
+        "question_type": "multiple_choice",
+        "order": 3,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qizdirish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Silliqlash va pardozlash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Kesish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Belgilash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda naqshlar qayerdan olinadi?",
+        "question_type": "multiple_choice",
+        "order": 4,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifan",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Oldindan yaratilgan eskizdan",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Internetdan ko'chiriladi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "O'qituvchi aytadi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Dars jarayonida nazoratning maqsadi nima?",
+        "question_type": "multiple_choice",
+        "order": 5,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Talabani jazolash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bilim va ko'nikmalarni baholash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Darsni qisqartirish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat yozish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misning asosiy fizik xususiyatlaridan biri qaysi?",
+        "question_type": "multiple_choice",
+        "order": 6,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Juda mo'rtligi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yuqori plastiklik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Past elektr o'tkazuvchanlik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Juda qattiqligi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misni qizdirib yumshatish jarayoni ilmiy jihatdan qanday ataladi?",
+        "question_type": "multiple_choice",
+        "order": 7,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Kristallanish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Rekristallizatsiya",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Oksidlanish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Polimerizatsiya",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Bronza qanday qotishma hisoblanadi?",
+        "question_type": "multiple_choice",
+        "order": 8,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Mis va rux",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mis va qalay",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Temir va uglerod",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Alyuminiy va kremniy",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Latun (jez) tarkibi qanday?",
+        "question_type": "multiple_choice",
+        "order": 9,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Mis va qalay",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mis va rux",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Temir va nikel",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Mis va oltin",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis yuzasida oksidlanish natijasida qanday qatlam hosil bo'ladi?",
+        "question_type": "multiple_choice",
+        "order": 10,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Lak",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Patina",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Emal",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Polimer",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh tushirishda zarba kuchi nimaga bog'liq?",
+        "question_type": "multiple_choice",
+        "order": 11,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat bolg'a rangiga",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Asbob og'irligi va zarba tezligiga",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Auditoriya hajmiga",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Talabaning yozuviga",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Metallni deformatsiya qilish qanday jarayon?",
+        "question_type": "multiple_choice",
+        "order": 12,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Kimyoviy",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mexanik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Biologik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Elektron",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi olim metallshunoslik asoslarini rivojlantirgan?",
+        "question_type": "multiple_choice",
+        "order": 13,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Mikhail Lomonosov",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Isaac Newton",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Albert Einstein",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Charles Darwin",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda sovuq deformatsiya nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 14,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qizdirilgan holda ishlov berish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Past haroratda ishlov berish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Eritish jarayoni",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Sovitish jarayoni",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi metod talabalarni mustaqil fikrlashga o'rgatadi?",
+        "question_type": "multiple_choice",
+        "order": 15,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Reproduktiv metod",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Muammoli o'qitish metodi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Yodlash metodi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Takrorlash metodi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misning erish harorati taxminan nechaga teng?",
+        "question_type": "multiple_choice",
+        "order": 16,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "500°C",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "1083°C",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "2000°C",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "300°C",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi jarayon metall yuzasini mustahkamlaydi?",
+        "question_type": "multiple_choice",
+        "order": 17,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Silliqlash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Sovuq ishlov berish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Bo'yash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Belgilash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Sharq hunarmandchiligida mashhur markazlardan biri:",
+        "question_type": "multiple_choice",
+        "order": 18,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Samarqand",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Moskva",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Berlin",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Tokio",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Didaktik tamoyillardan biri qaysi?",
+        "question_type": "multiple_choice",
+        "order": 19,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifiylik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Tizimlilik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Noaniqlik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Qisqartirish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda eskiz nima uchun kerak?",
+        "question_type": "multiple_choice",
+        "order": 20,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat bezak uchun",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Ishni rejalashtirish uchun",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Darsni uzaytirish uchun",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Materialni tejash uchun emas",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi jarayon metallni mo'rtlashtiradi?",
+        "question_type": "multiple_choice",
+        "order": 21,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qizdirish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Haddan tashqari sovuq deformatsiya",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Silliqlash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Laklash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Talabalarning kompetensiyasini rivojlantirish nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 22,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat bilim berish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bilim, ko'nikma va malakani shakllantirish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat yozish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat test ishlash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis yuzasiga naqsh tushirishda asosiy kuch qayerdan keladi?",
+        "question_type": "multiple_choice",
+        "order": 23,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Elektrdan",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mexanik zarbadan",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Kimyoviy reaksiyadan",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Yorug'likdan",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi tarixiy davrda metallga ishlov berish keng rivojlandi?",
+        "question_type": "multiple_choice",
+        "order": 24,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tosh davri",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bronza davri",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Muzlik davri",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Paleolit",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Metodik nuqtai nazardan refleksiya nima?",
+        "question_type": "multiple_choice",
+        "order": 25,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Darsni boshlash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "O'quv jarayonini tahlil qilish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat yozish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Baho qo'yish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Metallning Xossalari",
+    "description": "Mis, bronza, latunning fizik va kimyoviy xossalari, metallga ishlov berish jarayonlari. 51–75 savollar.",
+    "time_limit_minutes": 30,
+    "passing_score": 60.0,
+    "questions": [
+      {
+        "question_text": "Misning elektr o'tkazuvchanligi qanday?",
+        "question_type": "multiple_choice",
+        "order": 1,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Past",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yuqori",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "O'rtacha",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Nolga teng",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi omil naqsh sifatiga ta'sir qiladi?",
+        "question_type": "multiple_choice",
+        "order": 2,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Asbobning aniqligi",
+            "is_correct": true,
+            "order": 1
+          },
+          {
+            "answer_text": "Auditoriya hajmi",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Dars vaqti",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Rang",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Metall yuzasida yorilish nimadan kelib chiqadi?",
+        "question_type": "multiple_choice",
+        "order": 3,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "To'g'ri ishlovdan",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Haddan tashqari deformatsiyadan",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Silliqlashdan",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Laklashdan",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi metod interaktiv hisoblanadi?",
+        "question_type": "multiple_choice",
+        "order": 4,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Ma'ruza",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bahs-munozara",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Yodlash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Takrorlash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mis buyumlarda issiqlik o'tkazuvchanlik qanday?",
+        "question_type": "multiple_choice",
+        "order": 5,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Past",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yuqori",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Nol",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "O'zgarmaydi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "O'qitishda vizual materiallar nimani ta'minlaydi?",
+        "question_type": "multiple_choice",
+        "order": 6,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Charchoqni oshiradi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Tushunishni osonlashtiradi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Darsni qiyinlashtiradi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Vaqtni cho'zadi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Misga ishlov berishda naqsh chuqurligi nimaga bog'liq?",
+        "question_type": "multiple_choice",
+        "order": 7,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rangga",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Zarba kuchiga",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Dars vaqtiga",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Auditoriyaga",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi qotishma mustahkamligi bilan ajralib turadi?",
+        "question_type": "multiple_choice",
+        "order": 8,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Sof mis",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bronza",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Yog'och",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Shisha",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Darsni rejalashtirish nimani ta'minlaydi?",
+        "question_type": "multiple_choice",
+        "order": 9,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tartibsizlikni",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Samaradorlikni",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Qiyinchilikni",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Charchoqni",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Professional ustaning asosiy belgisi nima?",
+        "question_type": "multiple_choice",
+        "order": 10,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat tez ishlashi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Sifat va aniqlik bilan ishlashi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat ko'p gapirishi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat nazariya bilishi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh nima?",
+        "question_type": "multiple_choice",
+        "order": 11,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifiy chiziqlar yig'indisi",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Ma'lum tartibda joylashgan bezak elementlari",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat ranglar yig'indisi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Metall yuzasi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Ornament qanday xususiyatga ega bo'ladi?",
+        "question_type": "multiple_choice",
+        "order": 12,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tartibsiz",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Takrorlanuvchi elementlarga ega",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat bitta shakl",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat rangsiz",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Geometrik naqshlarga misol qaysi?",
+        "question_type": "multiple_choice",
+        "order": 13,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Gullar tasviri",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Hayvonlar tasviri",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Uchburchak va doira shakllari",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Portret",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Islimiy naqshlar nimaga asoslanadi?",
+        "question_type": "multiple_choice",
+        "order": 14,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Geometrik shakllarga",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "O'simliksimon elementlarga",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Texnik chizmalarga",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Matnlarga",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Girih naqshlari nimasi bilan ajralib turadi?",
+        "question_type": "multiple_choice",
+        "order": 15,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rang-barangligi bilan",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Murakkab geometrik tuzilishi bilan",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat gullardan iboratligi bilan",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Oddiyligi bilan",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Kompozitsiya markazi nima?",
+        "question_type": "multiple_choice",
+        "order": 16,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Eng bo'sh joy",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Asosiy e'tibor qaratilgan qism",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Chekka qism",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Rangli qism",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Simmetriya nima?",
+        "question_type": "multiple_choice",
+        "order": 17,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tartibsizlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Muvozanatli joylashuv",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Rang o'zgarishi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Chiziq uzunligi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Asimmetrik kompozitsiya nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 18,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "To'liq tenglik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Teng bo'lmagan, lekin muvozanatli joylashuv",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat doira",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat kvadrat",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda ritm nima?",
+        "question_type": "multiple_choice",
+        "order": 19,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rang tanlash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Elementlarning takrorlanishi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Metall qalinligi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Asbob turi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "O'zbek milliy naqshlarida ko'p uchraydigan element:",
+        "question_type": "multiple_choice",
+        "order": 20,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Texnik detal",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "O'simliksimon shakllar",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Elektr sxema",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Grafik diagramma",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni misga ko'chirishning eng to'g'ri usuli:",
+        "question_type": "multiple_choice",
+        "order": 21,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifan chizish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Eskiz orqali o'tkazish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Ko'z bilan taxmin qilish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Internetdan nusxa olish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh elementlari o'rtasidagi masofa nimani ta'minlaydi?",
+        "question_type": "multiple_choice",
+        "order": 22,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tartibsizlikni",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Muvozanat va uyg'unlikni",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Qiyinchilikni",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Tasodifni",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni o'rgatishda qaysi metod samarali?",
+        "question_type": "multiple_choice",
+        "order": 23,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat nazariya",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Bosqichma-bosqich ko'rsatish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat test",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat yozish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Murakkab naqshlar qanday o'rgatiladi?",
+        "question_type": "multiple_choice",
+        "order": 24,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Bir zumda",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Oddiydan murakkabga tamoyili asosida",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat nazariyada",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Tasodifan",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda kontrast nima?",
+        "question_type": "multiple_choice",
+        "order": 25,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Bir xil ranglar",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Qarama-qarshi elementlar uyg'unligi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat chiziqlar",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat fon",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Naqsh San'ati va Dizayn",
+    "description": "Naqsh kompozitsiyasi, ornament, simmetriya, islimiy va geometrik naqsh turlari. 76–100 savollar.",
+    "time_limit_minutes": 30,
+    "passing_score": 60.0,
+    "questions": [
+      {
+        "question_text": "Naqshning asosiy vazifasi:",
+        "question_type": "multiple_choice",
+        "order": 1,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Metallni eritish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Buyumni bezash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Uni kesish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Uni sindirish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Qaysi naqsh turi milliy san'atda keng tarqalgan?",
+        "question_type": "multiple_choice",
+        "order": 2,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifiy naqsh",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "An'anaviy ornament",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Texnik chizma",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Grafik jadval",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni buzadigan omil qaysi?",
+        "question_type": "multiple_choice",
+        "order": 3,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Aniqlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Noto'g'ri proporsiya",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Simmetriya",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Ritm",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda proporsiya nimani anglatadi?",
+        "question_type": "multiple_choice",
+        "order": 4,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rang",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "O'lchamlar nisbati",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Material turi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Asbob",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshlarni o'qitishda vizual namunalar nima beradi?",
+        "question_type": "multiple_choice",
+        "order": 5,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qiyinchilik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yaxshi tushunish",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Charchoq",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Befoyda vaqt",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni chuqur tushirish nimaga bog'liq?",
+        "question_type": "multiple_choice",
+        "order": 6,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Rangga",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Zarba kuchiga",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Auditoriyaga",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Vaqtga",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh elementlarini birlashtirish nima deyiladi?",
+        "question_type": "multiple_choice",
+        "order": 7,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Fragmentatsiya",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Kompozitsiya",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Deformatsiya",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Oksidlanish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda markaziy element qanday bo'ladi?",
+        "question_type": "multiple_choice",
+        "order": 8,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Eng kichik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Eng muhim va ajralib turadigan",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Eng oddiy",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Ko'rinmas",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "O'quvchilarga naqsh o'rgatishda birinchi bosqich:",
+        "question_type": "multiple_choice",
+        "order": 9,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Murakkab naqsh",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Oddiy shakllar",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tayyor buyum",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Baholash",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda takrorlanish nima beradi?",
+        "question_type": "multiple_choice",
+        "order": 10,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tartibsizlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Ritm va uyg'unlik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Qiyinchilik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Befoyda ko'rinish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni buzmaslik uchun nima muhim?",
+        "question_type": "multiple_choice",
+        "order": 11,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tez ishlash",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Aniqlik va ehtiyotkorlik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat kuch ishlatish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Tasodif",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh chizishda asosiy vosita:",
+        "question_type": "multiple_choice",
+        "order": 12,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Bolg'a",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Qalam",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Pech",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Arralash asbobi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni o'qitishda tahlil nima beradi?",
+        "question_type": "multiple_choice",
+        "order": 13,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qiyinchilik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Xatolarni aniqlash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Darsni tugatish",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Vaqtni yo'qotish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh elementlari orasidagi bog'liqlik nima deyiladi?",
+        "question_type": "multiple_choice",
+        "order": 14,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Aloqasizlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Uyg'unlik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tasodif",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Qarama-qarshilik",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni mukammal qilish uchun nima kerak?",
+        "question_type": "multiple_choice",
+        "order": 15,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tezlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mashq va tajriba",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tasodif",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat nazariya",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda fon qanday rol o'ynaydi?",
+        "question_type": "multiple_choice",
+        "order": 16,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Hech qanday",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Asosiy elementni ajratib ko'rsatadi",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat rang beradi",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat to'ldiradi",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh yaratishda ilhom manbai nima bo'lishi mumkin?",
+        "question_type": "multiple_choice",
+        "order": 17,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tabiat",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Texnika",
+            "is_correct": false,
+            "order": 2
+          },
+          {
+            "answer_text": "Har ikkisi",
+            "is_correct": true,
+            "order": 3
+          },
+          {
+            "answer_text": "Hech biri",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni o'rgatishda takrorlash nimani beradi?",
+        "question_type": "multiple_choice",
+        "order": 18,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Zerikish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Mustahkamlash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Qiyinchilik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Tasodif",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni noto'g'ri joylashtirish nimaga olib keladi?",
+        "question_type": "multiple_choice",
+        "order": 19,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Go'zallik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Disbalans",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Uyg'unlik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Ritm",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni o'qitishda individual yondashuv nimani beradi?",
+        "question_type": "multiple_choice",
+        "order": 20,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Qiyinchilik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Yaxshi natija",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tartibsizlik",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Vaqt yo'qotish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqsh san'atining asosiy qadriyati nima?",
+        "question_type": "multiple_choice",
+        "order": 21,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Faqat texnika",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Estetik go'zallik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat material",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat vaqt",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshda markazdan chetga qarab rivojlanish qanday kompozitsiya?",
+        "question_type": "multiple_choice",
+        "order": 22,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Chiziqli",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Radial",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tasodifiy",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Oddiy",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni baholashda asosiy mezon:",
+        "question_type": "multiple_choice",
+        "order": 23,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tezlik",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Sifat va aniqlik",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Rang",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Hajm",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Naqshni yaratishda xatolarni kamaytirish uchun:",
+        "question_type": "multiple_choice",
+        "order": 24,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Shoshilish",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Reja asosida ishlash",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Tasodifiy ishlash",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Faqat nusxa olish",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "question_text": "Mukammal naqsh qanday bo'ladi?",
+        "question_type": "multiple_choice",
+        "order": 25,
+        "points": 1.0,
+        "answers": [
+          {
+            "answer_text": "Tasodifiy",
+            "is_correct": false,
+            "order": 1
+          },
+          {
+            "answer_text": "Uyg'un, muvozanatli va aniq",
+            "is_correct": true,
+            "order": 2
+          },
+          {
+            "answer_text": "Faqat rangli",
+            "is_correct": false,
+            "order": 3
+          },
+          {
+            "answer_text": "Juda oddiy",
+            "is_correct": false,
+            "order": 4
+          }
+        ]
+      }
+    ]
+  }
+]
